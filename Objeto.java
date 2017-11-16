@@ -1,6 +1,4 @@
 
-package tarea;
-
 public class Objeto{
 	String nombreObjeto;
 	String atributoObjeto;
