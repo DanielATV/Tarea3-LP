@@ -1,5 +1,5 @@
 
-packagage juego;
+package tarea;
 
 public class Objeto{
 	String nombreObjeto;
@@ -21,7 +21,7 @@ public class Objeto{
 		return atributoObjeto;
 
 	}
-	int getValor{
+	int getValor(){
 		return valorAtributo;
 
 	}
