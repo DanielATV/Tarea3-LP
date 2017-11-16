@@ -23,6 +23,14 @@ public class Jugador extends Personaje{
 		return punto_poder;
 	}
 
+	int get_def(){
+		return defensa;
+	}
+
+	int get_ata(){
+		return ataque;
+	}
+
 	void set_esp1(String name, int power, int pp){
 		this.esp_1 = name;
 		this.power_1 = power;
