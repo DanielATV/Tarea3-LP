@@ -8,8 +8,8 @@ Ataques especiales jugador:
 - Gate of Hell +5000 ataque, 5pp
 
 Ataques especiales jefe:
-- Cannon Spear + 300 ataque, 15pp
-- Limit Break +10000 ataque, 1pp
+- Cannon Spear + 300 ataque
+- Limit Break +10000 ataque
 
 Objetos:
 - Veil of Discord +600 defensa
