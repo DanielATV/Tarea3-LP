@@ -1,5 +1,5 @@
 package juego;
   
 interface Ataque{
-  void ataque(string target);
+  void ataque(String target);
 }
