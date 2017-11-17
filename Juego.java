@@ -1,38 +1,20 @@
-
-import java.util.Scanner;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class Juego {
-
-  public static void main(String[] args) {
-  	Scanner scan = new Scanner(System.in);
-  	//String s = scan.next();
-  	//int i = scan.nextInt();
-  	try {
-		FileWriter writer = new FileWriter("MyFile.txt", true);
-		writer.write("Hello World");
-		writer.write("\r\n");   // write new line
-		writer.write("Good Bye!");
-		writer.close();
-	} catch (IOException e) {
-		e.printStackTrace();
-		}
-
-	try {
-		FileReader reader = new FileReader("MyFile.txt");
-		int character;
-
-        while ((character = reader.read()) != -1) {
-        	System.out.print((char) character);
-        }
-        reader.close();
-		
-	} catch (IOException e) {
-		e.printStackTrace();
-    	}
-
-   
-  }
+	    public static void main(String[] args) {
+	      Jugador A = new Jugador(100,20,35,"Ryu",23);
+	      Jefe B = new Jefe(2000,40,30,"Akuma");
+	      Objeto C = new Objeto("Kaiser Knuckles","ataque",45);
+	      Objeto D = new Objeto("God Hand","ataque",250);
+	      Aliado J = new Aliado(50,D);
+	      B.set_esp1("Satsui no Hadou", 2000);
+	      A.set_esp1("Hadouken", 200 , 15);
+	      A.set_esp2("Shoryouken", 250 , 20);
+	      A.set_obj(C,1);
+	      J.assign_item(A);
+	      System.out.println("----------------------------------------");
+	      A.display();
+	      System.out.println("----------------------------------------");
+	      B.display();
+	      System.out.println("----------------------------------------");
+	      return;
+    }
 }

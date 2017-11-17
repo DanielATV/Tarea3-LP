@@ -1,5 +1,3 @@
-package juego;
-  
-interface AtaqueEspecial{
-  int ataqueSpecial(String nombre, int defensa);
+public interface AtaqueEspecial{
+	
 }

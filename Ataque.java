@@ -1,4 +1,3 @@
-
-interface Ataque{
-  int ataque(int ataque, int defensa);
+public interface Ataque{
+	
 }
