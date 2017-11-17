@@ -1,13 +1,32 @@
 public class Objeto{
-	protected String nombre;
-	protected int bonus_vida;
-	protected int bonus_ataque;
-	protected int bonus_defensa;
+	String nombreObjeto;
+	String atributoObjeto;
+	int valorAtributo;
 
-	Objeto(String name, int b_v, int b_d, int b_a){
-		nombre = name;
-		bonus_defensa = b_d;
-		bonus_ataque = b_a;
-		bonus_vida = b_v;
+	Objeto(){
+		nombreObjeto="";
+		atributoObjeto="";
+		valorAtributo=0;
+	}
+
+	Objeto(String nombre,String atributo,int valor){
+		nombreObjeto = nombre;
+		atributoObjeto = atributo;
+		valorAtributo = valor;
+	}
+	String getNombre(){
+		return nombreObjeto;
+	}
+
+	String getAtributo(){
+		return atributoObjeto;
+	}
+
+	int getValor(){
+		return valorAtributo;
+	}
+
+	void display(){
+		System.out.println(nombreObjeto+": "+valorAtributo+" "+atributoObjeto);
 	}
 }

@@ -9,6 +9,10 @@ public class Jugador extends Personaje{
 	protected String esp_2;
 	protected int power_2;
 	protected int cost_2;
+	protected Objeto obj1;
+	protected int obj1_bool = 0;
+	protected Objeto obj2;
+	protected int obj2_bool = 0;
 
 
 	Jugador(int vid, int def, int ata, String name, int pp){
@@ -43,6 +47,42 @@ public class Jugador extends Personaje{
 		this.cost_2 = pp;
 	}
 
+	void set_ata(int ata){
+		ataque = ata;
+	}
+	
+	void set_def(int def){
+		defensa = def;
+	}
+	
+	void set_vida(int vid){
+		vida = vid;
+	}
+
+	void set_obj(Objeto A, int ini){
+		if (ini == 1){
+			obj1_bool = 1;
+			obj1 = A;
+			if (A.getAtributo() == "vida") {
+				vida = vida + A.getValor();
+			} else if (A.getAtributo() == "defensa"){
+				defensa = defensa + A.getValor();
+			} else {
+				ataque = ataque + A.getValor();
+			}
+		} else {
+			obj2_bool = 1;
+			obj2 = A;
+			if (A.getAtributo() == "vida") {
+				vida = vida + A.getValor();
+			} else if (A.getAtributo() == "defensa"){
+				defensa = defensa + A.getValor();
+			} else {
+				ataque = ataque + A.getValor();
+			}
+		}
+	}
+
 	void display(){
 		System.out.println(nombre);
 		System.out.println("Vida: "+vida);
@@ -50,5 +90,11 @@ public class Jugador extends Personaje{
 		System.out.println("Defensa: "+defensa);
 		System.out.println("Ataque especial: "+esp_1+" "+power_1+" "+cost_1+"pp");
 		System.out.println("Ataque especial: "+esp_2+" "+power_2+" "+cost_2+"pp");
+		if (obj1_bool == 1) {
+			obj1.display();
+		}
+		if (obj2_bool == 1) {
+			obj2.display();
+		}
 	}
 }
