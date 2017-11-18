@@ -12,8 +12,9 @@ public class Juego {
 	      J.assign_item(A);
 	      System.out.println("----------------------------------------");
 	      A.display();
+	      J.delete_item(A);
 	      System.out.println("----------------------------------------");
-	      B.display();
+	      A.display();
 	      System.out.println("----------------------------------------");
 	      return;
     }

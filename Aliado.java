@@ -8,7 +8,7 @@ public class Aliado extends Personaje{
 	void assign_item(Jugador C){
 		if (A.getAtributo()=="vida"){
 			C.set_vida(C.get_vida()+A.getValor());
-		}else if (A.getAtributo()=="defensa"){}{
+		}else if (A.getAtributo()=="defensa"){
 			C.set_def(C.get_def()+A.getValor());
 		} else {
 			C.set_ata(C.get_ata()+A.getValor());
@@ -16,7 +16,7 @@ public class Aliado extends Personaje{
 	}
 	int delete_item(Jugador C){
 		if (A.getAtributo()=="vida"){
-			if ((C.get_vida()-A.getValor())<=0) {
+			if ((C.get_vida()-A.getValor())<=0){
 				C.set_vida(0);
 				return 0;
 			}
@@ -27,11 +27,12 @@ public class Aliado extends Personaje{
 				return 1;
 		} else {
 				C.set_ata(C.get_ata()-A.getValor());
+				return 1;
 		}
 	}
 
 	void display(){
 		System.out.print("Aliado: "+vida+" HP ");
-		B.display();
+		A.display();
 	}	
 }
