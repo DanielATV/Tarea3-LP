@@ -42,13 +42,19 @@ public class Jugador extends Personaje{
 	}
 
 	int use_esp(String name, int def){
-		if (esp_1 == name) {
+		if (esp_1.equals(name)) {
+			if (cost_1 == 0) {
+				return -1;
+			}
 			cost_1 = cost_1 - 1;
 			if (power_1 <= def) {
 				return 0;
 			}
 			return ataque + power_1 - def;
-		} else if (esp_2 == name) {
+		} else if (esp_2.equals(name)) {
+			if (cost_2 == 0) {
+				return -1;
+			}
 			cost_2 = cost_2 -1;
 			if (power_2 <= def) {
 				return 0;
