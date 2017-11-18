@@ -33,19 +33,22 @@ public class Juego {
   	StringBuffer stringBuffer = new StringBuffer();
   	String[] tokens;
   	int contador;
-  	Jugador player;
-
+  
 
 	List<Nivel> listaNiveles = new ArrayList<Nivel>();
+
+	Jugador playerDummy = new Jugador(-1,-1,-1,"");
 
 
   	while(juego){
 
   		try{
+
   			File file = new File("niveles.txt");
   			FileReader fileReader = new FileReader(file);
   			BufferedReader bufferedReader = new BufferedReader(fileReader);
   			contador = 0;
+
   			while ((linea = bufferedReader.readLine()) != null){
   				tokens = linea.split(" ");
 
@@ -54,34 +57,47 @@ public class Juego {
   					nombreNiv = tokens[0];
   					
 
-
   				}
   				else if(contador == 1){
-  					
+
+  					contador += 1;
+
+  					nombreJug =tokens[0];
+  					playerDummy.set_nombre(nombreJug);
   					vidaJug = Integer.parseInt(tokens[1]);
+  					playerDummy.set_vida(vidaJug);
 					ataqJug =  Integer.parseInt(tokens[2]);
+					playerDummy.set_ata(ataqJug);
 					defJug = Integer.parseInt(tokens[3]);
+					playerDummy.set_def(defJug);
+
 					ataque1 = tokens[4];
 					ataque2 = tokens[5];
 
-					Jugador player = new Jugador(vidaJug,defJug,ataqJug,nombreJug);
+					
 
   				}
   				else if(contador == 2){
+  					contador += 1;
 
   				}
   				else if(contador == 3){
+  					contador += 1;
 
   				}
   				else if(contador == 4){
+  					contador += 1;
 
   				}
   				else {
+
+  					contador = 0;
 
   				}
 
 
   			}
+
   			fileReader.close();
 
 
