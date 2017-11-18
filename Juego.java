@@ -29,8 +29,10 @@ public class Juego {
   	String lineaAux = "";
   	boolean menu;
   	boolean subMenu;
-  	
+  	BufferedReader bufferedReader = new BufferedReader(fileReader);
   	StringBuffer stringBuffer = new StringBuffer();
+  	String[] tokens;
+
 
 
 	List<Nivel> listaNiveles = new ArrayList<Nivel>();
@@ -41,9 +43,11 @@ public class Juego {
   		try{
   			File file = new File("niveles.txt");
   			FileReader fileReader = new FileReader(file);
-  			BufferedReader bufferedReader = new BufferedReader(fileReader);
   			while ((linea = bufferedReader.readLine()) != null){
-  				System.out.println(linea);
+  				tokens = s.split(" ");
+  				for(String t : tokens){
+  					System.out.print(t);
+  				}
 
   			}
   			fileReader.close();
