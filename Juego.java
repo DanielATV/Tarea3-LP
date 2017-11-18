@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Juego {
@@ -28,7 +30,8 @@ public class Juego {
   	String lineaAux = "";
   	boolean menu;
   	boolean subMenu;
-	List<Nivele> listaNiveles = new ArrayList<Nivel>();
+
+	List<Nivel> listaNiveles = new ArrayList<Nivel>();
 
 
   	while(juego){
@@ -254,19 +257,19 @@ public class Juego {
 
 
 
-					System.out.println("Nombre del Jefe: ");
+					System.out.print("Nombre del Jefe: ");
 					linea = reader.readLine();
 					nombreJug = linea;
 					writer.write(nombreJug + " ");
-					System.out.println("Vida del Jefe: ");
+					System.out.print("Vida del Jefe: ");
 					linea = reader.readLine();
 					vidaJug = Integer.parseInt(linea);
 					writer.write(vidaJug + " ");
-					System.out.println("Ataque del Jefe: ");
+					System.out.print("Ataque del Jefe: ");
 					linea = reader.readLine();
 					ataqJug = Integer.parseInt(linea);
 					writer.write(ataqJug + " ");
-					System.out.println("Defensa del Jefe: ");
+					System.out.print("Defensa del Jefe: ");
 					linea = reader.readLine();
 					defJug = Integer.parseInt(linea);
 					writer.write(defJug + " ");
@@ -305,7 +308,7 @@ public class Juego {
 					
 						
 
-					System.out.println("Vida del Aliado: ");
+					System.out.print("Vida del Aliado: ");
 					linea = reader.readLine();
 					vidaJug = Integer.parseInt(linea);
 					writer.write(vidaJug + " ");
@@ -318,8 +321,9 @@ public class Juego {
 					menu = true;
 
 					while(menu){
-						linea = reader.readLine();
 						System.out.print("Opcion: ");
+						linea = reader.readLine();
+						
 
 						if (linea.equals("1")){
 							obj = "Veil_of_Discord";
@@ -383,8 +387,10 @@ public class Juego {
 					menu = true;
 
 					while(menu){
-						linea = reader.readLine();
+
 						System.out.print("Opcion: ");
+						linea = reader.readLine();
+						
 
 
 						if (linea.equals("1")){
@@ -432,19 +438,19 @@ public class Juego {
 
 					Objeto objNiv = new Objeto(obj,atributo,stat);
 
-					System.out.println("Cantidad de enemigos: ");
+					System.out.print("Cantidad de enemigos: ");
 					linea = reader.readLine();
 					cantEn = Integer.parseInt(linea);
 					writer.write(vidaJug + " ");
-					System.out.println("Vida del enemigo: ");
+					System.out.print("Vida del enemigo: ");
 					linea = reader.readLine();
 					vidaJug = Integer.parseInt(linea);
 					writer.write(vidaJug + " ");
-					System.out.println("Ataque del enemigo: ");
+					System.out.print("Ataque del enemigo: ");
 					linea = reader.readLine();
 					ataqJug = Integer.parseInt(linea);
 					writer.write(ataqJug + " ");
-					System.out.println("Defensa del enemigo: ");
+					System.out.print("Defensa del enemigo: ");
 					linea = reader.readLine();
 					defJug = Integer.parseInt(linea);
 					writer.write(defJug + " ");
@@ -454,6 +460,7 @@ public class Juego {
 
 					Nivel nivel = new Nivel(nombreNiv,player,boss,ally,objNiv,enemy,cantEn);
 
+					listaNiveles.add(nivel);
 					writer.close();
 
 				}
