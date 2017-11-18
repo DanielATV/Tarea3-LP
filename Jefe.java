@@ -29,7 +29,7 @@ public class Jefe extends Personaje{
 				return 0;
 			}
 		}
-		return ataque + power_1 - def;
+		return ataque  +power_1 - def;
 	}
 
 	int get_def(){
