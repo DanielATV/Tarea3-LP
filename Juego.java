@@ -2,6 +2,8 @@ import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 
 public class Juego {
@@ -23,18 +25,21 @@ public class Juego {
   	int stat = -1;
   	boolean juego = true;
   	Scanner scan = new Scanner(System.in);
-  	//String s = scan.next();
-  	//int i = scan.nextInt();
+  	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+  	String linea;
+
 
   	while(juego){
 
+  		
   		System.out.println("Elegir ataques especiales:");
 		System.out.println("1. Crear Nivel");
 		System.out.println("2. Simular avance en Nivel");
 		System.out.println("3. Consultar informacion de Nivel");
 		System.out.println("4. Salir");
-		op = scan.nextInt();
-		if (op == 1){
+
+		linea = reader.readline();
+		if (linea.equals("1")){
 
 			try {
 				FileWriter writer = new FileWriter("niveles.txt", true);
@@ -313,20 +318,20 @@ public class Juego {
 
 				Nivel nivel = new Nivel(nombreNiv,player,boss,ally,objNiv,enemy,cantEn);
 
-
-				
-
-
 				writer.close();
+
 			} catch (IOException e) {
 				e.printStackTrace();
 				}
 		}
-		else if (op == 2){
+		else if (linea.equals("2"){
 			System.out.println("Test");
 		}
-		else if(op == 4){
+		else if(linea.equals("4")){
 			juego = false;
+		}
+		else{
+			System.out.println("Opcion no valida");
 		}
 
   	}
