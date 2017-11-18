@@ -38,6 +38,7 @@ public class Juego {
 	List<Nivel> listaNiveles = new ArrayList<Nivel>();
 
 	Jugador playerDummy = new Jugador(-1,-1,-1,"");
+	Objeto objJugDummy = new Objeto("","",-1);
 
 
   	while(juego){
@@ -117,6 +118,55 @@ public class Juego {
 
 						playerDummy.set_esp2(ataque1,5000,5);
 
+					}
+
+					if (tokens.length == 7){
+						obj= tokens[6];
+
+  						if (obj.equals("Veil_of_Discord")){
+
+  							objJugDummy.set_nombre(obj);
+  							objJugDummy.set_atributo("defensa");
+  							objJugDummy.set_valor(600);
+
+  		
+						
+							playerDummy.set_obj(objJugDummy,1);
+
+
+						}
+						else if (obj.equals("Chainmail"){
+
+							objJugDummy.set_nombre(obj);
+  							objJugDummy.set_atributo("defensa");
+  							objJugDummy.set_valor(500);
+	
+							
+							playerDummy.set_obj(objJugDummy,1);
+
+
+							
+						}
+						else if (linea.equals("Guardian_Greaves")){
+
+							objJugDummy.set_nombre(obj);
+  							objJugDummy.set_atributo("vida");
+  							objJugDummy.set_valor(500);
+
+		
+							playerDummy.set_obj(objJugDummy,1);
+							
+						}
+						else {
+
+							objJugDummy.set_nombre(obj);
+  							objJugDummy.set_atributo("dvida");
+  							objJugDummy.set_valor(1000);
+
+							
+							playerDummy.set_obj(objJugDummy,1);
+
+						}
 					}
 
 					
