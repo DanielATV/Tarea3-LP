@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,12 +24,14 @@ public class Juego {
   	String atributo = "";
   	int stat = -1;
   	boolean juego = true;
-  	Scanner scan = new Scanner(System.in);
   	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
   	String linea;
   	String lineaAux = "";
   	boolean menu;
   	boolean subMenu;
+  	BufferedReader bufferedReader = new BufferedReader(fileReader);
+  	StringBuffer stringBuffer = new StringBuffer();
+
 
 	List<Nivel> listaNiveles = new ArrayList<Nivel>();
 
@@ -37,6 +39,14 @@ public class Juego {
   	while(juego){
 
   		try{
+  			File file = new File("niveles.txt");
+  			FileReader fileReader = new FileReader(file);
+  			while ((linea = bufferedReader.readLine()) != null){
+  				System.out.println(linea);
+
+  			}
+  			fileReader.close();
+
 
 			System.out.println("1. Crear Nivel");
 			System.out.println("2. Simular avance en Nivel");
