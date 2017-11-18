@@ -18,6 +18,7 @@ public class Juego {
   	String ataque2;
   	Sting desi;
   	String obj;
+  	int cantEn;
   	Scanner scan = new Scanner(System.in);
   	//String s = scan.next();
   	//int i = scan.nextInt();
@@ -142,9 +143,17 @@ public class Juego {
 			}
 
 			System.out.println("Nombre del Jefe: ");
+			nombreJug = scan.next();
+			writer.write(nombreJug + " ");
 			System.out.println("Vida del Jefe: ");
+			vidaJug = scan.nextInt();
+			writer.write(vidaJug + " ");
 			System.out.println("Ataque del Jefe: ");
+			ataqJug = scan.nextInt();
+			writer.write(ataqJug + " ");
 			System.out.println("Defensa del Jefe: ");
+			defJug = scan.nextInt();
+			writer.write(defJug + " ");
 			System.out.println("Elegir ataques especiales:");
 			System.out.println("1. Cannon Spear + 300 ataque");
 			System.out.println("2. Limit Break +10000 ataque");
@@ -163,6 +172,8 @@ public class Juego {
 			}
 
 			System.out.println("Vida del Aliado: ");
+			vidaJug = scan.nextInt();
+			writer.write(vidaJug + " ");
 			System.out.println("Objeto Aliado: ");
 			System.out.println("1. Veil of Discord +600 defensa");
 			System.out.println("2. Chainmail +500 defensa");
@@ -232,17 +243,21 @@ public class Juego {
 			}
 
 			System.out.println("Cantidad de enemigos: ");
+			cantEn = scan.nextInt();
+			writer.write(vidaJug + " ");
 			System.out.println("Vida del enemigo: ");
+			vidaJug = scan.nextInt();
+			writer.write(vidaJug + " ");
 			System.out.println("Ataque del enemigo: ");
+			ataqJug = scan.nextInt();
+			writer.write(ataqJug + " ");
 			System.out.println("Defensa del enemigo: ");
-
-
-
-
+			defJug = scan.nextInt();
+			writer.write(defJug + " ");
+			writer.write("\n");
 
 
 			
-
 
 
 			writer.close();
