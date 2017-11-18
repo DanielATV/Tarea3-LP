@@ -2,7 +2,6 @@
 public class Jefe extends Personaje{
 	protected int ataque;
 	protected int defensa;
-    protected int punto_poder;
 	protected String nombre;
 	protected String esp_1;
 	protected int power_1;
@@ -15,8 +14,22 @@ public class Jefe extends Personaje{
         this.nombre = name;
 	}
 
-	int get_pp(){
-		return punto_poder;
+	int reduce_hp(int damage){
+		damage = damage - defensa;
+		vida = vida - damage;
+		if (vida <=0) {
+			return 0;
+		}
+		return 1;
+	}
+
+	int use_esp(String name, int def){
+		if (esp_1 == name) {
+			if (power_1 <= def) {
+				return 0;
+			}
+		}
+		return ataque + power_1 - def;
 	}
 
 	int get_def(){

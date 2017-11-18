@@ -1,10 +1,11 @@
 public class Aliado extends Personaje{
 	Objeto A;
-	protected int vida;
+	
 	Aliado(int vida, Objeto B){
 		super(vida);
 		this.A = B;
 	}
+
 	void assign_item(Jugador C){
 		if (A.getAtributo()=="vida"){
 			C.set_vida(C.get_vida()+A.getValor());
@@ -14,6 +15,7 @@ public class Aliado extends Personaje{
 			C.set_ata(C.get_ata()+A.getValor());
 		}
 	}
+
 	int delete_item(Jugador C){
 		if (A.getAtributo()=="vida"){
 			if ((C.get_vida()-A.getValor())<=0){
@@ -29,6 +31,14 @@ public class Aliado extends Personaje{
 				C.set_ata(C.get_ata()-A.getValor());
 				return 1;
 		}
+	}
+
+	int reduce_hp(int damage){
+		vida = vida - damage;
+		if (vida <=0) {
+			return 0;
+		}
+		return 1;
 	}
 
 	void display(){

@@ -1,7 +1,6 @@
 public class Jugador extends Personaje{
 	protected int ataque;
 	protected int defensa;
-    protected int punto_poder;
 	protected String nombre;
 	protected String esp_1;
 	protected int power_1;
@@ -15,16 +14,11 @@ public class Jugador extends Personaje{
 	protected int obj2_bool = 0;
 
 
-	Jugador(int vid, int def, int ata, String name, int pp){
+	Jugador(int vid, int def, int ata, String name){
 		super(vid);
 		this.ataque = ata;
 		this.defensa = def;
         this.nombre = name;
-        this.punto_poder = pp;
-	}
-
-	int get_pp(){
-		return punto_poder;
 	}
 
 	int get_def(){
@@ -47,6 +41,23 @@ public class Jugador extends Personaje{
 		this.cost_2 = pp;
 	}
 
+	int use_esp(String name, int def){
+		if (esp_1 == name) {
+			cost_1 = cost_1 - 1;
+			if (power_1 <= def) {
+				return 0;
+			}
+			return ataque + power_1 - def;
+		} else if (esp_2 == name) {
+			cost_2 = cost_2 -1;
+			if (power_2 <= def) {
+				return 0;
+			}
+			return ataque + power_2 - def;
+		}
+		return 0;
+	}
+
 	void set_ata(int ata){
 		ataque = ata;
 	}
@@ -57,6 +68,15 @@ public class Jugador extends Personaje{
 	
 	void set_vida(int vid){
 		vida = vid;
+	}
+
+	int reduce_hp(int damage){
+		damage = damage - defensa;
+		vida = vida - damage;
+		if (vida <=0) {
+			return 0;
+		}
+		return 1;
 	}
 
 	void set_obj(Objeto A, int ini){

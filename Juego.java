@@ -1,6 +1,6 @@
 public class Juego {
 	    public static void main(String[] args) {
-	      Jugador A = new Jugador(100,20,35,"Ryu",23);
+	      Jugador A = new Jugador(100,20,35,"Ryu");
 	      Jefe B = new Jefe(2000,40,30,"Akuma");
 	      Objeto C = new Objeto("Kaiser Knuckles","ataque",45);
 	      Objeto D = new Objeto("God Hand","ataque",250);
@@ -12,7 +12,12 @@ public class Juego {
 	      J.assign_item(A);
 	      System.out.println("----------------------------------------");
 	      A.display();
-	      J.delete_item(A);
+	      A.reduce_hp(25);
+	      System.out.println("----------------------------------------");
+	      A.display();
+	      System.out.println("----------------------------------------");
+	      B.reduce_hp(A.use_esp("Hadouken",B.get_def()));
+	      B.display();
 	      System.out.println("----------------------------------------");
 	      A.display();
 	      System.out.println("----------------------------------------");

@@ -8,4 +8,6 @@ abstract public class Personaje{
 	int get_vida(){
 		return vida;
 	}
+
+	abstract int reduce_hp(int damage);
 }

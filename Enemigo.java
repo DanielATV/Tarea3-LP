@@ -14,6 +14,15 @@ public class Enemigo extends Personaje{
 		System.out.println("Defensa: "+defensa);
 	}
 
+	int reduce_hp(int damage){
+		damage = damage - defensa;
+		vida = vida - damage;
+		if (vida <=0) {
+			return 0;
+		}
+		return 1;
+	}
+	
 	int get_def(){
 		return defensa;
 	}
