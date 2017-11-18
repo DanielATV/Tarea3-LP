@@ -1,22 +1,24 @@
-package juego;
-
 public class Nivel{
 	
 	String nombreNivel;
-	String nombreJugador;
-	int vidaJugador;
-	int defensaJugador;
-	String ataqueEspecial1;
-	String ataqueEspecial2;
-	String nombreJefe;
-	int vidaJefe;
-	int defensaJefe;
-	String ataqueSpecialjefe;
-	int vidaAliado;
-	String objetoAliado;
-	String objetoNivel;
+	Jugador player;
+	Jefe boss;
+	Aliado ally;
+	Objecto object;
+	Enemigo enemy;
 	int cantidadEnemigos;
-	int vidaEnemigos;
-	int defensaEnemigos;
+
+	Nivel(String nombre,Jugador p1,Jefe jef,Aliado al,Objecto obj,Enemigo enem, int cant ){
+
+	
+	nombreNivel = nombre;
+	player = p1;
+	boss = jef;
+	ally = al;
+	object = obj;
+	enemy = enem;
+	cantidadEnemigos = cant;
+	
+	}
 
 }
