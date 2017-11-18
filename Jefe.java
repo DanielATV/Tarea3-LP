@@ -40,6 +40,10 @@ public class Jefe extends Personaje{
 		return ataque;
 	}
 
+	public void set_vida(int vid){
+		vida = vid;
+	}
+
 	void set_esp1(String name, int power){
 		this.esp_1 = name;
 		this.power_1 = power;

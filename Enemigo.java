@@ -1,4 +1,4 @@
-public class Enemigo extends Personaje{
+public class Enemigo extends Personaje implements Ataque{
 	protected int ataque;
 	protected int defensa;
 
@@ -8,13 +8,13 @@ public class Enemigo extends Personaje{
 		this.defensa = def;
 	}
 
-	void display(){
+	public void display(){
 		System.out.println("Vida: "+vida);
 		System.out.println("Ataque: "+ataque);
 		System.out.println("Defensa: "+defensa);
 	}
 
-	int reduce_hp(int damage){
+	public int reduce_hp(int damage){
 		damage = damage - defensa;
 		vida = vida - damage;
 		if (vida <=0) {
@@ -22,12 +22,18 @@ public class Enemigo extends Personaje{
 		}
 		return 1;
 	}
-	
-	int get_def(){
+
+	public void set_vida(int vid){
+		vida = vid;
+	}
+
+	public int get_def(){
 		return defensa;
 	}
 
-	int get_ata(){
+	public int get_ata(){
 		return ataque;
 	}
+
+	
 }

@@ -1,4 +1,4 @@
-public class Jugador extends Personaje{
+public class Jugador extends Personaje implements Ataque{
 	protected int ataque;
 	protected int defensa;
 	protected String nombre;
@@ -21,27 +21,27 @@ public class Jugador extends Personaje{
         this.nombre = name;
 	}
 
-	int get_def(){
+	public int get_def(){
 		return defensa;
 	}
 
-	int get_ata(){
+	public int get_ata(){
 		return ataque;
 	}
 
-	void set_esp1(String name, int power, int pp){
+	public void set_esp1(String name, int power, int pp){
 		this.esp_1 = name;
 		this.power_1 = power;
 		this.cost_1 = pp;
 	}
 
-	void set_esp2(String name, int power, int pp){
+	public void set_esp2(String name, int power, int pp){
 		this.esp_2 = name;
 		this.power_2 = power;
 		this.cost_2 = pp;
 	}
 
-	int use_esp(String name, int def){
+	public int use_esp(String name, int def){
 		if (esp_1.equals(name)) {
 			if (cost_1 == 0) {
 				return -1;
@@ -64,19 +64,19 @@ public class Jugador extends Personaje{
 		return 0;
 	}
 
-	void set_ata(int ata){
+	public void set_ata(int ata){
 		ataque = ata;
 	}
 	
-	void set_def(int def){
+	public void set_def(int def){
 		defensa = def;
 	}
 	
-	void set_vida(int vid){
+	public void set_vida(int vid){
 		vida = vid;
 	}
 
-	int reduce_hp(int damage){
+	public int reduce_hp(int damage){
 		damage = damage - defensa;
 		vida = vida - damage;
 		if (vida <=0) {
@@ -85,7 +85,7 @@ public class Jugador extends Personaje{
 		return 1;
 	}
 
-	void set_obj(Objeto A, int ini){
+	public void set_obj(Objeto A, int ini){
 		if (ini == 1){
 			obj1_bool = 1;
 			obj1 = A;
@@ -109,7 +109,7 @@ public class Jugador extends Personaje{
 		}
 	}
 
-	void display(){
+	public void display(){
 		System.out.println(nombre);
 		System.out.println("Vida: "+vida);
 		System.out.println("Ataque: "+ataque);
@@ -122,5 +122,35 @@ public class Jugador extends Personaje{
 		if (obj2_bool == 1) {
 			obj2.display();
 		}
+	}
+
+	public int atacar(int ata, int def, int vid){
+		if ((ata - def) <= 0) {
+			return vid;
+		} else if ((ata - def) > 0) {
+			if ((vid - (ata - def)) <= 0) {
+				return 0;
+			}
+			return vid - (ata - def);
+		}
+		return vid - (ata - def);
+	}
+
+	public int atacar_jefe(Jefe J){
+		int dano = atacar(ataque,J.get_def(),J.get_vida());
+		J.set_vida(dano);
+		if (dano == 0) {
+			return 0;
+		}
+		return dano;
+	}
+
+	public int atacar_enemigo(Enemigo E){
+		int dano = atacar(ataque,E.get_def(),E.get_vida());
+		E.set_vida(dano);
+		if (dano == 0) {
+			return 0;
+		}
+		return dano;
 	}
 }

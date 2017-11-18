@@ -12,11 +12,11 @@ public class Juego {
 	      J.assign_item(A);
 	      System.out.println("----------------------------------------");
 	      A.display();
-	      A.reduce_hp(25);
 	      System.out.println("----------------------------------------");
-	      A.display();
+	      B.display();
 	      System.out.println("----------------------------------------");
-	      B.reduce_hp(A.use_esp("Hadouken",B.get_def()));
+	      A.atacar_jefe(B);
+	      A.atacar_jefe(B);
 	      B.display();
 	      System.out.println("----------------------------------------");
 	      A.display();
