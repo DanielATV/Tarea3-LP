@@ -25,7 +25,7 @@ public class Juego {
   	//int i = scan.nextInt();
 
   	while(juego){
-  		
+
   		System.out.println("Elegir ataques especiales:");
 		System.out.println("1. Crear Nivel");
 		System.out.println("2. Simular avance en Nivel");
@@ -52,6 +52,9 @@ public class Juego {
 				System.out.println("Defensa del Jugador: ");
 				defJug = scan.nextInt();
 				writer.write(defJug + " ");
+
+				Jugador player = new Jugador(vidaJug,defJug,ataqJug,nombreJug);
+
 				System.out.println("Elegir ataques especiales:");
 				System.out.println("1. Guillotine Fist +200 ataque, 30pp");
 				System.out.println("2. Rising Dragon +500 ataque, 25pp");
@@ -62,43 +65,51 @@ public class Juego {
 				if (op == 1){
 					ataque1 = "Guillotine_Fist";
 					writer.write(ataque1 + " ");
+					player.set_esp1(ataque1,200,30);
 
 				}
 				else if (op == 2){
 					ataque1 = "Rising_Dragon";
 					writer.write(ataque1 + " ");
+					player.set_esp1(ataque1,500,25);
 
 				}
 				else if (op == 3){
 					ataque1 = "Knuckle_ArrowFist";
 					writer.write(ataque1 + " ");
+					player.set_esp1(ataque1,100,50);
 
 				}
 				else if (op == 4){
 					ataque1 = "Gate_of_Hell";
 					writer.write(ataque1 + " ");
+					player.set_esp1(ataque1,5000,5);
 
 				}
 				if (op2 == 1){
 					ataque2 = "Guillotine_Fist";
 					writer.write(ataque2 + " ");
+					player.set_esp2(ataque2,200,30);
 
 				}
 				else if (op2 == 2){
 					ataque2 = "Rising_Dragon";
 					writer.write(ataque2 + " ");
+					player.set_esp2(ataque2,500,25);
 
 
 				}
 				else if (op2 == 3){
 					ataque2 = "Knuckle_Arrow";
 					writer.write(ataque2 + " ");
+					player.set_esp2(ataque2,100,50);
 
 
 				}
 				else if (op2 == 4){
 					ataque2 = "Gate_of_Hell";
 					writer.write(ataque2 + " ");
+					player.set_esp2(ataque2,5000,5);
 
 				}
 
@@ -110,17 +121,22 @@ public class Juego {
 					System.out.println("3. Guardian Greaves + 500 vida");
 					System.out.println("4. Lotus Orb +1000 vida");
 					op = scan.nextInt();
+					
 
 					if (op == 1){
 						obj = "Veil_of_Discord";
 						writer.write(obj);
 						writer.write("\n");
+						Objeto objJug = new Objeto(obj,"defensa",600);
+						player.set_obj(objJug,1);
 
 					}
 					else if (op == 2){
 						obj = "Chainmail";
 						writer.write(obj);
 						writer.write("\n");
+						Objeto objJug = new Objeto(obj,"defensa",500);
+						player.set_obj(objJug,1);
 
 						
 					}
@@ -128,6 +144,8 @@ public class Juego {
 						obj = "Guardian_Greaves";
 						writer.write(obj);
 						writer.write("\n");
+						Objeto objJug = new Objeto(obj,"vida",500);
+						player.set_obj(objJug,1);
 
 						
 					}
@@ -135,6 +153,8 @@ public class Juego {
 						obj = "Lotus_Orb";
 						writer.write(obj);
 						writer.write("\n");
+						Objeto objJug = new Objeto(obj,"vida",1000);
+						player.set_obj(objJug,1);
 						
 					}
 
@@ -157,6 +177,9 @@ public class Juego {
 				System.out.println("Defensa del Jefe: ");
 				defJug = scan.nextInt();
 				writer.write(defJug + " ");
+
+				Jefe boss = new Jefe(vidaJug,defJug,ataqJug,nombreJug);
+
 				System.out.println("Elegir ataques especiales:");
 				System.out.println("1. Cannon Spear + 300 ataque");
 				System.out.println("2. Limit Break +10000 ataque");
@@ -165,12 +188,14 @@ public class Juego {
 					ataque1 = "Cannon_Spear";
 					writer.write(ataque1 + " ");
 					writer.write("\n");
+					boss.set_esp1(ataque1,300);
 
 				}
 				else if (op == 2){
 					ataque1 = "Limit_Break ";
 					writer.write(ataque1 + " ");
 					writer.write("\n");
+					boss.set_esp1(ataque1,10000);
 
 				}
 
@@ -188,12 +213,16 @@ public class Juego {
 					obj = "Veil_of_Discord";
 					writer.write(obj);
 					writer.write("\n");
+					Objeto objAlly = new Objeto(obj,"defensa",600);
+					Aliado ally = new Aliado(vidaJug,objAlly);
 
 				}
 				else if (op == 2){
 					obj = "Chainmail";
 					writer.write(obj);
 					writer.write("\n");
+					Objeto objAlly = new Objeto(obj,"defensa",500);
+					Aliado ally = new Aliado(vidaJug,objAlly);
 
 					
 				}
@@ -201,6 +230,8 @@ public class Juego {
 					obj = "Guardian_Greaves";
 					writer.write(obj);
 					writer.write("\n");
+					Objeto objAlly = new Objeto(obj,"vida",500);
+					Aliado ally = new Aliado(vidaJug,objAlly);
 
 					
 				}
@@ -208,6 +239,8 @@ public class Juego {
 					obj = "Lotus_Orb";
 					writer.write(obj);
 					writer.write("\n");
+					Objeto objAlly = new Objeto(obj,"vida",1000);
+					Aliado ally = new Aliado(vidaJug,objAlly);
 					
 				}
 
@@ -222,12 +255,14 @@ public class Juego {
 					obj = "Veil_of_Discord";
 					writer.write(obj);
 					writer.write("\n");
+					Objeto objNiv = new Objeto(obj,"defensa",600);
 
 				}
 				else if (op == 2){
 					obj = "Chainmail";
 					writer.write(obj);
 					writer.write("\n");
+					Objeto objNiv = new Objeto(obj,"defensa",500);
 
 					
 				}
@@ -235,6 +270,7 @@ public class Juego {
 					obj = "Guardian_Greaves";
 					writer.write(obj);
 					writer.write("\n");
+					Objeto objNiv= new Objeto(obj,"vida",500);
 
 					
 				}
@@ -242,6 +278,7 @@ public class Juego {
 					obj = "Lotus_Orb";
 					writer.write(obj);
 					writer.write("\n");
+					Objeto objNiv = new Objeto(obj,"vida",1000);
 					
 				}
 
@@ -258,6 +295,10 @@ public class Juego {
 				defJug = scan.nextInt();
 				writer.write(defJug + " ");
 				writer.write("\n");
+
+				Enemigo enemy = new Enemigo(vidaJug,defJug,ataqJug);
+
+				Nivel nivel = new Nivel(nombreNiv,player,boss,ally,objNiv,enemy,cantEn);
 
 
 				
