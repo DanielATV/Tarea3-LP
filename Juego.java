@@ -29,7 +29,7 @@ public class Juego {
 	System.out.println("4. Salir");
 	op = scan.nextInt();
 	if (op == 1){
-		
+
 		try {
 			FileWriter writer = new FileWriter("niveles.txt", true);
 			System.out.println("Nombre del Nivel: ");
@@ -131,7 +131,6 @@ public class Juego {
 					obj = "Lotus Orb"
 					writer.write(obj);
 					writer.write("\n");
-
 					
 				}
 
@@ -141,6 +140,101 @@ public class Juego {
 				writer.write("\n");
 
 			}
+
+			System.out.println("Nombre del Jefe: ");
+			System.out.println("Vida del Jefe: ");
+			System.out.println("Ataque del Jefe: ");
+			System.out.println("Defensa del Jefe: ");
+			System.out.println("Elegir ataques especiales:");
+			System.out.println("1. Cannon Spear + 300 ataque");
+			System.out.println("2. Limit Break +10000 ataque");
+			op = scan.nextInt();
+			if (op == 1){
+				ataque1 = "Cannon Spear";
+				writer.write(ataque1 + " ");
+				writer.write("\n");
+
+			}
+			else if (op == 2){
+				ataque1 = "Limit Break ";
+				writer.write(ataque1 + " ");
+				writer.write("\n");
+
+			}
+
+			System.out.println("Vida del Aliado: ");
+			System.out.println("Objeto Aliado: ");
+			System.out.println("1. Veil of Discord +600 defensa");
+			System.out.println("2. Chainmail +500 defensa");
+			System.out.println("3. Guardian Greaves + 500 vida");
+			System.out.println("4. Lotus Orb +1000 vida");
+			op = scan.nextInt();
+
+			if (op == 1){
+				obj = "Veil of Discord"
+				writer.write(obj);
+				writer.write("\n");
+
+			}
+			else if (op == 2){
+				obj = "Chainmail"
+				writer.write(obj);
+				writer.write("\n");
+
+				
+			}
+			else if (op == 3){
+				obj = "Guardian Greaves"
+				writer.write(obj);
+				writer.write("\n");
+
+				
+			}
+			else if (op == 4){
+				obj = "Lotus Orb"
+				writer.write(obj);
+				writer.write("\n");
+				
+			}
+
+			System.out.println("Objeto del Nivel ");
+			System.out.println("1. Veil of Discord +600 defensa");
+			System.out.println("2. Chainmail +500 defensa");
+			System.out.println("3. Guardian Greaves + 500 vida");
+			System.out.println("4. Lotus Orb +1000 vida");
+			op = scan.nextInt();
+
+			if (op == 1){
+				obj = "Veil of Discord"
+				writer.write(obj);
+				writer.write("\n");
+
+			}
+			else if (op == 2){
+				obj = "Chainmail"
+				writer.write(obj);
+				writer.write("\n");
+
+				
+			}
+			else if (op == 3){
+				obj = "Guardian Greaves"
+				writer.write(obj);
+				writer.write("\n");
+
+				
+			}
+			else if (op == 4){
+				obj = "Lotus Orb"
+				writer.write(obj);
+				writer.write("\n");
+				
+			}
+
+			System.out.println("Cantidad de enemigos: ");
+			System.out.println("Vida del enemigo: ");
+			System.out.println("Ataque del enemigo: ");
+			System.out.println("Defensa del enemigo: ");
 
 
 
