@@ -20,21 +20,21 @@ public class Juego {
   	try {
 		FileWriter writer = new FileWriter("niveles.txt", true);
 		System.out.println("Nombre del Nivel: ");
-		nombreniv = scan.next();
-		writer.write(nomreinv);
+		nombreNiv = scan.next();
+		writer.write(nombreNiv);
 		writer.write("\n");
 		System.out.println("Nombre del Jugador: ");
 		nombreJug = scan.next();
-		writer.write(nombreJug );
+		writer.write(nombreJug + " ");
 		System.out.println("Vida del Jugador: ");
-		vidaJug = scan.nextInt()
-		writer.write(vidaJug );
+		vidaJug = scan.nextInt();
+		writer.write(vidaJug + " ");
 		System.out.println("Ataque del Jugador: ");
-		ataqJug = scan.nextInt()
-		writer.write(ataqJug );
+		ataqJug = scan.nextInt();
+		writer.write(ataqJug + " ");
 		System.out.println("Defensa del Jugador: ");
-		defJug = scan.nextInt()
-		writer.write(defJug );
+		defJug = scan.nextInt();
+		writer.write(defJug + " ");
 
 
 
