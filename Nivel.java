@@ -8,7 +8,7 @@ public class Nivel{
 	Enemigo enemy;
 	int cantidadEnemigos;
 
-	Nivel(String nombre,Jugador p1,Jefe jef,Aliado al,Objecto obj,Enemigo enem, int cant ){
+	Nivel(String nombre,Jugador p1,Jefe jef,Aliado al,Objeto obj,Enemigo enem, int cant ){
 
 	
 	nombreNivel = nombre;
@@ -21,7 +21,7 @@ public class Nivel{
 	
 	}
 	
-	public int getName(){
+	public String getName(){
 		return nombreNivel;
 	}
 
