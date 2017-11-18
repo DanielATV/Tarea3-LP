@@ -22,7 +22,7 @@ public class Nivel{
 	}
 	
 	public int getName(){
-		return nombrenivel;
+		return nombreNivel;
 	}
 
 }
