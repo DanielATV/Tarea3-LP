@@ -17,8 +17,10 @@ public class Juego {
   	String ataque1;
   	String ataque2;
   	String desi;
-  	String obj;
+  	String obj = "";
   	int cantEn;
+  	String atributo = "";
+  	int stat = -1;
   	boolean juego = true;
   	Scanner scan = new Scanner(System.in);
   	//String s = scan.next();
@@ -213,16 +215,20 @@ public class Juego {
 					obj = "Veil_of_Discord";
 					writer.write(obj);
 					writer.write("\n");
-					Objeto objAlly = new Objeto(obj,"defensa",600);
-					Aliado ally = new Aliado(vidaJug,objAlly);
+					atributo = "defensa";
+					stat = 600;
+
+					
+					
 
 				}
 				else if (op == 2){
 					obj = "Chainmail";
 					writer.write(obj);
 					writer.write("\n");
-					Objeto objAlly = new Objeto(obj,"defensa",500);
-					Aliado ally = new Aliado(vidaJug,objAlly);
+					atributo = "defensa";
+					stat = 500;
+					
 
 					
 				}
@@ -230,8 +236,9 @@ public class Juego {
 					obj = "Guardian_Greaves";
 					writer.write(obj);
 					writer.write("\n");
-					Objeto objAlly = new Objeto(obj,"vida",500);
-					Aliado ally = new Aliado(vidaJug,objAlly);
+					atributo = "vida";
+					stat = 500;
+					
 
 					
 				}
@@ -239,10 +246,13 @@ public class Juego {
 					obj = "Lotus_Orb";
 					writer.write(obj);
 					writer.write("\n");
-					Objeto objAlly = new Objeto(obj,"vida",1000);
-					Aliado ally = new Aliado(vidaJug,objAlly);
+					atributo = "vida";
+					stat = 1000;
 					
 				}
+
+				Objeto objAlly = new Objeto(obj,atributo,stat);
+				Aliado ally = new Aliado(vidaJug,objAlly);
 
 				System.out.println("Objeto del Nivel ");
 				System.out.println("1. Veil of Discord +600 defensa");
@@ -255,32 +265,35 @@ public class Juego {
 					obj = "Veil_of_Discord";
 					writer.write(obj);
 					writer.write("\n");
-					Objeto objNiv = new Objeto(obj,"defensa",600);
+					atributo = "defensa";
+					stat = 600;
 
 				}
 				else if (op == 2){
 					obj = "Chainmail";
 					writer.write(obj);
 					writer.write("\n");
-					Objeto objNiv = new Objeto(obj,"defensa",500);
-
+					atributo = "defensa";
+					stat = 500;
 					
 				}
 				else if (op == 3){
 					obj = "Guardian_Greaves";
 					writer.write(obj);
 					writer.write("\n");
-					Objeto objNiv= new Objeto(obj,"vida",500);
-
+					atributo = "vida";
+					stat = 500;
 					
 				}
 				else if (op == 4){
 					obj = "Lotus_Orb";
 					writer.write(obj);
 					writer.write("\n");
-					Objeto objNiv = new Objeto(obj,"vida",1000);
-					
+					atributo = "vida";
+					stat = 1000;
 				}
+
+				Objeto objNiv = new Objeto(obj,atributo,stat);
 
 				System.out.println("Cantidad de enemigos: ");
 				cantEn = scan.nextInt();
