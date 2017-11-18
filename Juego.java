@@ -32,7 +32,8 @@ public class Juego {
   	
   	StringBuffer stringBuffer = new StringBuffer();
   	String[] tokens;
-  	int contador = 0;
+  	int contador;
+  	Jugador player;
 
 
 	List<Nivel> listaNiveles = new ArrayList<Nivel>();
@@ -44,17 +45,26 @@ public class Juego {
   			File file = new File("niveles.txt");
   			FileReader fileReader = new FileReader(file);
   			BufferedReader bufferedReader = new BufferedReader(fileReader);
+  			contador = 0;
   			while ((linea = bufferedReader.readLine()) != null){
   				tokens = linea.split(" ");
 
   				if (contador == 0){
   					contador += 1;
   					nombreNiv = tokens[0];
-  					System.out.println(nombreNiv);
+  					
 
 
   				}
   				else if(contador == 1){
+  					
+  					vidaJug = Integer.parseInt(tokens[1]);
+					ataqJug =  Integer.parseInt(tokens[2]);
+					defJug = Integer.parseInt(tokens[3]);
+					ataque1 = tokens[4];
+					ataque2 = tokens[5];
+
+					Jugador player = new Jugador(vidaJug,defJug,ataqJug,nombreJug);
 
   				}
   				else if(contador == 2){
