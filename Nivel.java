@@ -4,7 +4,7 @@ public class Nivel{
 	Jugador player;
 	Jefe boss;
 	Aliado ally;
-	Objecto object;
+	Objeto object;
 	Enemigo enemy;
 	int cantidadEnemigos;
 
