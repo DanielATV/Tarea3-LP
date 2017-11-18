@@ -74,6 +74,51 @@ public class Juego {
 					ataque1 = tokens[4];
 					ataque2 = tokens[5];
 
+					if (tokens[4].equals("Guillotine_Fist")){
+
+						player.set_esp1(ataque1,200,30);
+
+					}
+					else if (tokens[4].equals("Rising_Dragon")){
+
+						player.set_esp1(ataque1,500,25);
+
+					}
+					else if (tokens[4].equals("Knuckle_ArrowFist")){
+
+						player.set_esp1(ataque1,100,50);
+
+
+					}
+					else if (tokens[4].equals("Gate_of_Hell")){
+
+						player.set_esp1(ataque1,5000,5);
+
+					}
+
+					if (tokens[5].equals("Guillotine_Fist")){
+
+						player.set_esp2(ataque1,200,30);
+
+					}
+					else if (tokens[5].equals("Rising_Dragon")){
+
+						player.set_esp2(ataque1,500,25);
+
+
+					}
+					else if (tokens[5].equals("Knuckle_ArrowFist")){
+
+						player.set_esp2(ataque1,100,50);
+
+
+					}
+					else if (tokens[5].equals("Gate_of_Hell")){
+
+						player.set_esp2(ataque1,5000,5);
+
+					}
+
 					
 
   				}
