@@ -20,5 +20,9 @@ public class Nivel{
 	cantidadEnemigos = cant;
 	
 	}
+	
+	public int getName(){
+		return nombrenivel;
+	}
 
 }
