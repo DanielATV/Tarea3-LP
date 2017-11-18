@@ -28,6 +28,7 @@ public class Juego {
   	String lineaAux = "";
   	boolean menu;
   	boolean subMenu;
+	List<Nivele> listaNiveles = new ArrayList<Nivel>();
 
 
   	while(juego){
