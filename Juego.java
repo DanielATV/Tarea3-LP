@@ -18,7 +18,6 @@ public class Juego {
   	int defJug;
   	String ataque1;
   	String ataque2;
-  	String desi;
   	String obj = "";
   	int cantEn;
   	String atributo = "";
@@ -29,10 +28,11 @@ public class Juego {
   	String lineaAux = "";
   	boolean menu;
   	boolean subMenu;
-  	
+  	BufferedReader bufferedReader = new BufferedReader(fileReader);
   	StringBuffer stringBuffer = new StringBuffer();
   	String[] tokens;
-  	int contador = 0;
+  	int contador;
+  	Jugador player;
 
 
 	List<Nivel> listaNiveles = new ArrayList<Nivel>();
@@ -43,20 +43,107 @@ public class Juego {
   		try{
   			File file = new File("niveles.txt");
   			FileReader fileReader = new FileReader(file);
-  			BufferedReader bufferedReader = new BufferedReader(fileReader);
+  			contador = 0;
   			while ((linea = bufferedReader.readLine()) != null){
-  				tokens = linea.split(" ");
+  				tokens = s.split(" ");
 
   				if (contador == 0){
   					contador += 1;
   					nombreNiv = tokens[0];
-  					System.out.println(nombreNiv);
 
 
   				}
   				else if(contador == 1){
+  					contador += 1;
 
+  					vidaJug = Integer.parseInt(tokens[1]);
+					ataqJug =  Integer.parseInt(tokens[2]);
+					defJug = Integer.parseInt(tokens[3]);
+					ataque1 = tokens[4];
+					ataque2 = tokens[5];
+
+					Jugador player = new Jugador(vidaJug,defJug,ataqJug,nombreJug);
+
+					if (tokens[4].equals("Guillotine_Fist")){
+
+						player.set_esp1(ataque1,200,30);
+
+					}
+					else if (tokens[4].equals("Rising_Dragon")){
+
+						player.set_esp1(ataque1,500,25);
+
+
+					}
+					else if (tokens[4].equals("Knuckle_ArrowFist")){
+
+						player.set_esp1(ataque1,100,50);
+
+
+					}
+					else if (tokens[4].equals("Gate_of_Hell")){
+
+						player.set_esp1(ataque1,5000,5);
+
+					}
+
+					if (tokens[5].equals("Guillotine_Fist")){
+
+						player.set_esp2(ataque1,200,30);
+
+					}
+					else if (tokens[5].equals("Rising_Dragon")){
+
+						player.set_esp2(ataque1,500,25);
+
+
+					}
+					else if (tokens[5].equals("Knuckle_ArrowFist")){
+
+						player.set_esp2(ataque1,100,50);
+
+
+					}
+					else if (tokens[5].equals("Gate_of_Hell")){
+
+						player.set_esp2(ataque1,5000,5);
+
+					}
+
+
+  					if (tokens.length == 7){
+
+  						obj= tokens[6];
+  						if (obj.equals("Veil_of_Discord")){
+  		
+							Objeto objJug = new Objeto(obj,"defensa",600);
+							player.set_obj(objJug,1);
+
+
+						}
+						else if (obj.equals("Chainmail"){
+	
+							Objeto objJug = new Objeto(obj,"defensa",500);
+							player.set_obj(objJug,1);
+
+
+							
+						}
+						else if (linea.equals("Guardian_Greaves")){
+
+							Objeto objJug = new Objeto(obj,"vida",500);
+							player.set_obj(objJug,1);
+							
+						}
+						else {
+
+							Objeto objJug = new Objeto(obj,"vida",1000);
+							player.set_obj(objJug,1);
+
+						}
+	
   				}
+
   				else if(contador == 2){
 
   				}
@@ -67,6 +154,7 @@ public class Juego {
 
   				}
   				else {
+  					contador = 0;
 
   				}
 
