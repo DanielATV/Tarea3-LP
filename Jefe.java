@@ -1,5 +1,5 @@
 
-public class Jefe extends Personaje{
+public class Jefe extends Personaje implements Ataque{
 	protected int ataque;
 	protected int defensa;
 	protected String nombre;
@@ -55,5 +55,20 @@ public class Jefe extends Personaje{
 		System.out.println("Ataque: "+ataque);
 		System.out.println("Defensa: "+defensa);
 		System.out.println("Ataque especial: "+esp_1+" "+power_1);
+	}
+
+	public int atacar_jugador(Jugador J){
+		int dano = atacar(ataque,J.get_def(),J.get_vida());
+		J.set_vida(dano);
+		return dano;
+	}
+
+	public int atacar_aliado(Aliado A,Jugador J){
+		int dano = atacar(ataque,0,A.get_vida());
+		A.set_vida(dano);
+		if (dano == 0) {
+			A.delete_item(J);
+		}
+		return dano;
 	}
 }

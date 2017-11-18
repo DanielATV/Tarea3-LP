@@ -139,18 +139,12 @@ public class Jugador extends Personaje implements Ataque{
 	public int atacar_jefe(Jefe J){
 		int dano = atacar(ataque,J.get_def(),J.get_vida());
 		J.set_vida(dano);
-		if (dano == 0) {
-			return 0;
-		}
 		return dano;
 	}
 
 	public int atacar_enemigo(Enemigo E){
 		int dano = atacar(ataque,E.get_def(),E.get_vida());
 		E.set_vida(dano);
-		if (dano == 0) {
-			return 0;
-		}
 		return dano;
 	}
 }

@@ -35,5 +35,18 @@ public class Enemigo extends Personaje implements Ataque{
 		return ataque;
 	}
 
-	
+	public int atacar_jugador(Jugador J){
+		int dano = atacar(ataque,J.get_def(),J.get_vida());
+		J.set_vida(dano);
+		return dano;
+	}
+
+	public int atacar_aliado(Aliado A,Jugador J){
+		int dano = atacar(ataque,0,A.get_vida());
+		A.set_vida(dano);
+		if (dano == 0) {
+			A.delete_item(J);
+		}
+		return dano;
+	}
 }
