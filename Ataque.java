@@ -1,3 +1,3 @@
 public interface Ataque{
-	public int atacar(int ata, int def, int vid);
+	public int atacar(int def, int vid);
 }

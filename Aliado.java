@@ -41,6 +41,10 @@ public class Aliado extends Personaje{
 		return 1;
 	}
 
+	public void set_vida(int vid){
+		vida = vid;
+	}
+
 	void display(){
 		System.out.print("Aliado: "+vida+" HP ");
 		A.display();

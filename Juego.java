@@ -15,8 +15,7 @@ public class Juego {
 	      System.out.println("----------------------------------------");
 	      B.display();
 	      System.out.println("----------------------------------------");
-	      A.atacar_jefe(B);
-	      A.atacar_jefe(B);
+	      A.ata_esp_jefe(1,B);
 	      B.display();
 	      System.out.println("----------------------------------------");
 	      A.display();

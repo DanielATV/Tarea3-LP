@@ -1,4 +1,4 @@
-public class Jugador extends Personaje implements Ataque{
+public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 	protected int ataque;
 	protected int defensa;
 	protected String nombre;
@@ -124,27 +124,64 @@ public class Jugador extends Personaje implements Ataque{
 		}
 	}
 
-	public int atacar(int ata, int def, int vid){
-		if ((ata - def) <= 0) {
+	public int atacar(int def, int vid){
+		if ((ataque - def) <= 0) {
 			return vid;
-		} else if ((ata - def) > 0) {
-			if ((vid - (ata - def)) <= 0) {
+		} else if ((ataque - def) > 0) {
+			if ((vid - (ataque - def)) <= 0) {
 				return 0;
 			}
-			return vid - (ata - def);
+			return vid - (ataque - def);
 		}
-		return vid - (ata - def);
+		return vid - (ataque - def);
+	}
+
+	public int ataque_especial(int opc,int vid, int def){
+		if (opc == 1) {
+			if ((ataque + power_1 - def) <= 0) {
+				return 0;
+			} else if ((ataque + power_1 - def) > 0) {
+				if ((vid - (ataque + power_1 - def)) <= 0) {
+					return 0;
+				} else {
+					return vid - (ataque + power_1 - def);
+				}
+			}	
+		} else if (opc == 2) {
+			if ((ataque + power_2 - def)<=0) {
+				return 0;
+			} else if ((ataque + power_2 - def) > 0) {
+				if ((vid - (ataque + power_2 - def)) <= 0) {
+					return 0;
+				} else {
+					return vid - (ataque + power_2 - def);
+				}
+			}
+		}
+		return vid;
 	}
 
 	public int atacar_jefe(Jefe J){
-		int dano = atacar(ataque,J.get_def(),J.get_vida());
+		int dano = atacar(J.get_def(),J.get_vida());
 		J.set_vida(dano);
 		return dano;
 	}
 
 	public int atacar_enemigo(Enemigo E){
-		int dano = atacar(ataque,E.get_def(),E.get_vida());
+		int dano = atacar(E.get_def(),E.get_vida());
 		E.set_vida(dano);
+		return dano;
+	}
+
+	public int ata_esp_enemigo(int opc,Enemigo E){
+		int dano = ataque_especial(opc,E.get_vida(),E.get_def());
+		E.set_vida(dano);
+		return dano;
+	}
+
+	public int ata_esp_jefe(int opc,Jefe J){
+		int dano = ataque_especial(opc,J.get_vida(),J.get_def());
+		J.set_vida(dano);
 		return dano;
 	}
 }
