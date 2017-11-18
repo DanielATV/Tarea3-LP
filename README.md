@@ -16,3 +16,7 @@ Objetos:
 - Chainmail +500 defensa
 - Guardian Greaves + 500 vida
 - Lotus Orb +1000 vida
+
+
+Consideraciones menores:
+Para los nombres, si son compuestos se deben separar con un guion bajo. (Ej Alan_Brito)
