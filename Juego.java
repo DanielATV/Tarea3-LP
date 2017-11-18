@@ -25,7 +25,7 @@ public class Juego {
   	Scanner scan = new Scanner(System.in);
   	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
   	String linea;
-  	String lineaAux;
+  	String lineaAux = "";
   	boolean menu;
   	boolean subMenu;
 
@@ -173,9 +173,10 @@ public class Juego {
 					}
 
 					menu = true;
-					System.out.print("Desea equipar un objeto? y/n");
+					System.out.println("Desea equipar un objeto? y/n");
 
 					while(menu){
+						System.out.print("Opcion: ");
 
 						linea = reader.readLine();
 
@@ -277,8 +278,8 @@ public class Juego {
 					System.out.println("1. Cannon Spear + 300 ataque");
 					System.out.println("2. Limit Break +10000 ataque");
 
-					while menu{
-						System.out.print("Opcion: ")
+					while (menu){
+						System.out.print("Opcion: ");
 						linea = reader.readLine();
 						if (linea.equals("1")){
 							ataque1 = "Cannon_Spear";
@@ -297,7 +298,7 @@ public class Juego {
 
 						}
 						else {
-							System.out.print("Opcion no valida");
+							System.out.println("Opcion no valida");
 						}
 					}
 					
@@ -305,7 +306,7 @@ public class Juego {
 
 					System.out.println("Vida del Aliado: ");
 					linea = reader.readLine();
-					vidaJug = linea;
+					vidaJug = Integer.parseInt(linea);
 					writer.write(vidaJug + " ");
 					System.out.println("Objeto Aliado: ");
 					System.out.println("1. Veil of Discord +600 defensa");
@@ -363,7 +364,7 @@ public class Juego {
 
 						else{
 
-							System.out.print("Opcion no valida");
+							System.out.println("Opcion no valida");
 						}
 
 					}
@@ -422,7 +423,7 @@ public class Juego {
 						}
 						else{
 
-							System.out.print("Opcion no valida");
+							System.out.println("Opcion no valida");
 						}
 					}
 
@@ -454,9 +455,13 @@ public class Juego {
 
 					writer.close();
 
-				} catch (IOException e) {
+				}
+				catch (IOException e) {
 					e.printStackTrace();
-					}
+				}
+				catch (NumberFormatException e){
+					System.out.println("Debe ser un numero");
+				}
 			}
 			else if (linea.equals("2")){
 				System.out.println("Test");
