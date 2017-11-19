@@ -253,8 +253,8 @@ public class Nivel{
 
 							}
 							 valor = player.ata_esp_jefe(what_esp,boss);
-							System.out.println(player.get_name()" utilizo "+ ataq +"contra "+boss.get_nombre()+", "player.get_name()": "+player.get_vida()+"Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
-							writer.write(player.get_name()" "+ataq+" "+boss.get_nombre()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+							System.out.println(player.get_name()+" utilizo "+ ataq +" contra "+boss.get_nombre()+", "+player.get_name()+": "+player.get_vida()+"Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+							writer.write(player.get_name()+" "+ataq+" "+boss.get_nombre()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 							writer.write("\n");
 
 							if(valor == 0){
@@ -289,8 +289,8 @@ public class Nivel{
 
 								valor = boss.atacar_jugador(player);
 
-								System.out.println(boss.get_nombre()+"ataca "player.get_name()", "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
-								writer.write(boss.get_nombre()" ataque "player.get_name()" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+								System.out.println(boss.get_nombre()+" ataca "+player.get_name()+", "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								writer.write(boss.get_nombre()+" ataque "+player.get_name()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 								writer.write("\n");
 
 								if(valor == 0){
@@ -304,10 +304,10 @@ public class Nivel{
 								}
 							} else if (esp_or_not == 2) {
 
-								valor = boss.ata_esp_jugador(player)
+								valor = boss.ata_esp_jugador(player);
 
-								System.out.println(boss.get_nombre()+" utilizo "+boss.get_esp()+" contra "+player.get_name()", "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
-								writer.write(boss.get_nombre()" "+boss.get_esp()+" "player.get_name()" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+								System.out.println(boss.get_nombre()+" utilizo "+boss.get_esp()+" contra "+player.get_name()+", "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								writer.write(boss.get_nombre()+" "+boss.get_esp()+" "+player.get_name()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 								writer.write("\n");
 
 								if ( valor == 0) {
