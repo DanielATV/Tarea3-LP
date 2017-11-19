@@ -330,9 +330,13 @@ public class Juego {
 				
 				
 				
+
 				
 				
-				listaNiveles.add(new Nivel(nombreNiv,nivelDummy.get_player(),nivelDummy.get_jefe(),nivelDummy.get_ally(),nivelDummy.get_obj(),nivelDummy.get_enemy(),cantEn));
+				
+				
+				
+				listaNiveles.add(new Nivel(nombreNiv,nivelDummy.get_player(),nivelDummy.get_jefe(),nivelDummy.get_ally(),nivelDummy.get_obj(),new Enemigo((nivelDummy.get_enemy()).get_vida(),(nivelDummy.get_enemy()).get_def(),(nivelDummy.get_enemy()).get_ata()),cantEn));
 
 	
 
