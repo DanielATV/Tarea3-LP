@@ -87,7 +87,7 @@ public class Nivel{
 		int flag=1;
 		String which_one;
 		ally.assign_item(player); // Asignando atributos del aliado al player
-		test test = new test(cant); // Creando las listas para aleatoriedad
+		Test test = new Test(cant); // Creando las listas para aleatoriedad
 		int choice = test.rand_path();
 		while(flag != 0){
 			if (choice == 1) { 
