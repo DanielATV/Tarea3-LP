@@ -954,6 +954,21 @@ public class Juego {
 							menu = false;
 
 							System.out.println("Nombre del nivel: " + N.get_name());
+
+							(N.get_player()).display();
+
+							(N.get_jefe()).display();
+
+							(N.get_ally()).display();
+
+							(N.get_obj()).display();
+
+							(N.get_enemy()).display();
+
+							System.out.println("Cantidad de enemigos: " + N.get_cant());
+
+
+
 						}
 
 					}
