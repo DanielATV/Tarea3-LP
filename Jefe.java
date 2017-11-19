@@ -1,1 +1,132 @@
 
+
+public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
+	protected int ataque;
+	protected int defensa;
+	protected String nombre;
+	protected String esp_1;
+	protected int power_1;
+
+
+	Jefe(int vid, int def, int ata, String name){
+		super(vid);
+		this.ataque = ata;
+		this.defensa = def;
+        this.nombre = name;
+	}
+
+	int reduce_hp(int damage){
+		damage = damage - defensa;
+		vida = vida - damage;
+		if (vida <=0) {
+			return 0;
+		}
+		return 1;
+	}
+
+	int use_esp(String name, int def){
+		if (esp_1 == name) {
+			if (power_1 <= def) {
+				return 0;
+			}
+		}
+		return ataque  +power_1 - def;
+	}
+
+	int get_def(){
+		return defensa;
+	}
+
+	int get_ata(){
+		return ataque;
+	}
+
+	public void set_vida(int vid){
+		vida = vid;
+	}
+
+	public void set_ata(int ata){
+		ataque = ata;
+	}
+	
+	public void set_def(int def){
+		defensa = def;
+	}
+	
+	public void set_vida(int vid){
+		vida = vid;
+	}
+	
+	public void set_nombre(String nom){
+		nombre = nom;
+	}
+
+	void set_esp1(String name, int power){
+		this.esp_1 = name;
+		this.power_1 = power;
+	}
+
+	void display(){
+		System.out.println(nombre);
+		System.out.println("Vida: "+vida);
+		System.out.println("Ataque: "+ataque);
+		System.out.println("Defensa: "+defensa);
+		System.out.println("Ataque especial: "+esp_1+" "+power_1);
+	}
+
+	public int atacar(int def, int vid){
+		if ((ataque - def) <= 0) {
+			return vid;
+		} else if ((ataque - def) > 0) {
+			if ((vid - (ataque - def)) <= 0) {
+				return 0;
+			}
+			return vid - (ataque - def);
+		}
+		return vid - (ataque - def);
+	}
+
+	public int atacar_jugador(Jugador J){
+		int dano = atacar(J.get_def(),J.get_vida());
+		J.set_vida(dano);
+		return dano;
+	}
+
+
+
+	public int atacar_aliado(Aliado A,Jugador J){
+		int dano = atacar(0,A.get_vida());
+		A.set_vida(dano);
+		if (dano == 0) {
+			A.delete_item(J);
+		}
+		return dano;
+	}
+
+	public int ataque_especial(int opc,int vid, int def){
+		if (opc == 1) {
+			if ((ataque + power_1 - def)<=0) {
+				return 0;
+			} else if ((ataque + power_1 - def) > 0) {
+				if ((vid - (ataque + power_1 - def)) <= 0) {
+					return 0;
+				} else {
+					return vid - (ataque + power_1 - def);
+				}
+			}	
+		}
+		return vid;
+	}
+
+	public int ata_esp_jugador(int opc,Jugador J){
+		int dano = ataque_especial(1,J.get_vida(),J.get_def());
+		J.set_vida(dano);
+		return dano;
+	}
+
+	public int ata_esp_aliado(int opc,Aliado A){
+		int dano = ataque_especial(1,A.get_vida(),0);
+		A.set_vida(dano);
+		return dano;
+	}
+}
