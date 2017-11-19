@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+
 public class Nivel{
 	
 	String nombreNivel;
@@ -89,6 +91,16 @@ public class Nivel{
 		ally.assign_item(player); // Asignando atributos del aliado al player
 		Test test = new Test(cant); // Creando las listas para aleatoriedad
 		int choice = test.rand_path();
+
+
+		try{
+
+			FileWriter writer = new FileWriter("registro_simulaciones.txt", true);
+
+		}catch(IOException ioe){
+
+	  		ioe.printStackTrace();
+		}
 		while(flag != 0){
 			if (choice == 1) { 
 				// Objeto encontrado -- Mobilis in mobili
