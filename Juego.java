@@ -39,6 +39,11 @@ public class Juego {
 	Jugador playerDummy = new Jugador(-1,-1,-1,"");
 	Objeto objJugDummy = new Objeto("","",-1);
 	Jefe bossDummy = new Jefe(-1,-1,-1,"");
+	Objeto objAllyDummy = new Objeto("","",-1);
+	Aliado allyDummy = new Aliado(-1,objAllyDummy);
+	Objeto objNivDummy = new Objeto("","",-1);
+	
+
 
 
   	while(juego){
@@ -147,7 +152,7 @@ public class Juego {
 
 							
 						}
-						else if (linea.equals("Guardian_Greaves")){
+						else if (obj.equals("Guardian_Greaves")){
 
 							objJugDummy.set_nombre(obj);
   							objJugDummy.set_atributo("vida");
@@ -157,10 +162,10 @@ public class Juego {
 							playerDummy.set_obj(objJugDummy,1);
 							
 						}
-						else {
+						else if (obj.equals("Lotus_Orb"){
 
 							objJugDummy.set_nombre(obj);
-  							objJugDummy.set_atributo("dvida");
+  							objJugDummy.set_atributo("vida");
   							objJugDummy.set_valor(1000);
 
 							
@@ -173,6 +178,7 @@ public class Juego {
 
   				}
   				else if(contador == 2){
+
   					contador += 1;
   					nombreJug =tokens[0];
   					bossDummy.set_nombre(nombreJug);
@@ -202,12 +208,102 @@ public class Juego {
   				else if(contador == 3){
   					contador += 1;
 
+  					vidaJug = Integer.parseInt(tokens[0]);
+  					allyDummy.set_vida(vidaJug);
+
+  					obj= tokens[1];
+
+					if (obj.equals("Veil_of_Discord")){
+
+						objAllyDummy.set_nombre(obj);
+						objAllyDummy.set_atributo("defensa");
+						objAllyDummy.set_valor(600);
+
+	
+						allyDummy.set_obj(objAllyDummy);
+
+
+					}
+
+					else if (obj.equals("Chainmail")){
+						objAllyDummy.set_nombre(obj);
+						objAllyDummy.set_atributo("defensa");
+						objAllyDummy.set_valor(500);
+
+						
+						allyDummy.set_obj(objAllyDummy);
+
+
+						
+					}
+					else if (obj.equals("Guardian_Greaves")){
+
+						objAllyDummy.set_nombre(obj);
+						objAllyDummy.set_atributo("vida");
+						objAllyDummy.set_valor(500);
+
+	
+						allyDummy.set_obj(objAllyDummy);
+						
+					}
+					else if (obj.equals("Lotus_Orb"){
+
+						objAllyDummy.set_nombre(obj);
+						objAllyDummy.set_atributo("vida");
+						objAllyDummy.set_valor(1000);
+
+						
+						allyDummy.set_obj(objAllyDummy);
+
+					}
+
+
   				}
   				else if(contador == 4){
   					contador += 1;
+  					obj= tokens[0];
+
+					if (obj.equals("Veil_of_Discord")){
+
+						objNivDummy.set_nombre(obj);
+						objNivDummy.set_atributo("defensa");
+						objNivDummy.set_valor(600);
+
+
+					}
+
+					else if (obj.equals("Chainmail")){
+
+						objNivDummy.set_nombre(obj);
+						objNivDummy.set_atributo("defensa");
+						objNivDummy.set_valor(500);
+
+						
+
+
+
+						
+					}
+					else if (obj.equals("Guardian_Greaves")){
+
+						objNivDummy.set_nombre(obj);
+						objNivDummy.set_atributo("vida");
+						objNivDummy.set_valor(500);
+
+					}
+
+					else if (obj.equals("Lotus_Orb"){
+
+						objNivDummy.set_nombre(obj);
+						objNivDummy.set_atributo("vida");
+						objNivDummy.set_valor(1000);
+
+					}
 
   				}
   				else {
+
+  					cantEn = tokens[0];
 
   					contador = 0;
 
