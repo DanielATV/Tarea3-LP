@@ -18,7 +18,6 @@ public class Juego {
   	int defJug;
   	String ataque1;
   	String ataque2;
-  	String desi;
   	String obj = "";
   	int cantEn;
   	String atributo = "";
@@ -39,6 +38,7 @@ public class Juego {
 
 	Jugador playerDummy = new Jugador(-1,-1,-1,"");
 	Objeto objJugDummy = new Objeto("","",-1);
+	Jefe bossDummy = new Jefe(-1,-1,-1,"");
 
 
   	while(juego){
@@ -135,7 +135,7 @@ public class Juego {
 
 
 						}
-						else if (obj.equals("Chainmail")){
+						else if (obj.equals("Chainmail"){
 
 							objJugDummy.set_nombre(obj);
   							objJugDummy.set_atributo("defensa");
@@ -174,6 +174,29 @@ public class Juego {
   				}
   				else if(contador == 2){
   					contador += 1;
+  					nombreJug =tokens[0];
+  					bossDummy.set_nombre(nombreJug);
+  					vidaJug = Integer.parseInt(tokens[1]);
+  					bossDummy.set_vida(vidaJug);
+					ataqJug =  Integer.parseInt(tokens[2]);
+					bossDummy.set_ata(ataqJug);
+					defJug = Integer.parseInt(tokens[3]);
+					bossDummy.set_def(defJug);
+
+					ataque1 = tokens[4];
+
+					if (tokens[4].equals("Cannon_Spear"){
+
+						bossDummy.set_esp1(ataque1,300);
+
+
+					}
+
+					else if (tokens[4].equals("Limit_Break")){
+						
+						bossDummy.set_esp1(ataque1,10000);
+
+					}
 
   				}
   				else if(contador == 3){
@@ -452,7 +475,7 @@ public class Juego {
 
 						}
 						else if (linea.equals("2")){
-							ataque1 = "Limit_Break ";
+							ataque1 = "Limit_Break";
 							writer.write(ataque1 + " ");
 							writer.write("\n");
 							boss.set_esp1(ataque1,10000);
