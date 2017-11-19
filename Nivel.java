@@ -108,6 +108,14 @@ public class Nivel{
 			System.out.println("Begin!");
 
 			while(flag != 0){
+
+				if(cant == 0){
+					System.out.println("Todos los enemigos han sido derrotados!");
+					writer.write("Todos los enemigos han sido derrotados");
+					writer.write("\n");
+					choice == 3;
+
+				}
 				if (choice == 1) { 
 					// Objeto encontrado
 					System.out.println(object.getNombre() + " encontrado");
@@ -124,7 +132,18 @@ public class Nivel{
 
 					while(enemy.get_vida()>0 && player.get_vida()>0){
 						// Ataque del player
-						esp_or_not = test.atack_choice();
+
+						if(player.get_power_esp1>0 || player.get_power_esp2>0){
+
+							esp_or_not = test.atack_choice();
+
+						}
+
+						else{
+
+							esp_or_not = 1;
+						}
+						
 						if (esp_or_not == 1) {
 							// Ataque normal hacia el esbirro
 
@@ -144,12 +163,27 @@ public class Nivel{
 							// Ataque especial hacia el esbirro siempre y cuando sea posible con los pp actuales
 							what_esp = test.select_esp();
 
-							if (what_esp ==1){
-								ataq = player.get_esp1();
+							if (what_esp == 1){
+
+								if(player.get_power_esp1>0){
+									ataq = player.get_esp1();
+
+								}
+								else{
+									ataq = player.get_esp2();
+								}
+								
 
 							}
-							else if (what_esp == 2){
-								ataq = player.get_esp2();
+							else if (what_esp == 2 ){
+								if(player.get_power_esp2>0){
+
+									ataq = player.get_esp2();
+								}
+								else{
+									ataq = player.get_esp1();
+								}
+								
 
 							}
 
@@ -176,8 +210,18 @@ public class Nivel{
 							enemy.atacar_aliado(ally,player);
 
 							System.out.println("Enemigo ataca a Aliado, "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" Enemigo: "+enemy.get_vida() );
-							writer.write("Enemigo ataca "+player.get_name()+" "+player.get_vida()+" "+ally.get_vida()+" "+enemy.get_vida());
+							writer.write("Enemigo ataca Aliado"+player.get_vida()+" "+ally.get_vida()+" "+enemy.get_vida());
 							writer.write("\n");
+
+							if(ally.get_vida() == 0){
+
+								System.out.println("Tu aliado ha sido derrotado!");
+								writer.write("Derrota del aliado");
+								writer.write("\n");
+
+
+
+							}
 							if (player.get_vida() == 0) {
 								// Casualidades de objeto el player muere
 
@@ -186,6 +230,7 @@ public class Nivel{
 								writer.write("\n");
 								flag = 0;
 							}
+
 						} else if (which_one.equals("Jugador")) {
 
 							valor = enemy.atacar_jugador(player);
@@ -207,6 +252,7 @@ public class Nivel{
 					// Resucitando al esbirro y restando de la horda
 					cant--;
 					enemy.set_vida(vida_esbirro);
+
 				} else if (choice == 3) {
 					// Pelea contra jefe
 					System.out.println("WARNING!!");
@@ -219,8 +265,18 @@ public class Nivel{
 					while(boss.get_vida()>0 && player.get_vida()>0){
 						// Ataque del player
 
+						if(player.get_power_esp1>0 || player.get_power_esp2>0){
 
-						esp_or_not = test.atack_choice();
+							esp_or_not = test.atack_choice();
+
+						}
+
+						else{
+							
+							esp_or_not = 1;
+						}
+
+
 						if (esp_or_not == 1) {
 							// Ataque normal hacia el jefe
 
@@ -244,17 +300,33 @@ public class Nivel{
 							// Ataque especial hacia el jefe siempre y cuando sea posible con los pp actuales
 							what_esp = test.select_esp();
 
-							if (what_esp ==1){
-								ataq = player.get_esp1();
+							if (what_esp == 1){
+
+								if(player.get_power_esp1>0){
+									ataq = player.get_esp1();
+
+								}
+								else{
+									ataq = player.get_esp2();
+								}
+								
 
 							}
-							else if (what_esp == 2){
-								ataq = player.get_esp2();
+							else if (what_esp == 2 ){
+
+								if(player.get_power_esp2>0){
+
+									ataq = player.get_esp2();
+								}
+								else{
+									ataq = player.get_esp1();
+								}
 
 							}
-							 valor = player.ata_esp_jefe(what_esp,boss);
-							System.out.println(player.get_name()+" utilizo "+ ataq +" contra "+boss.get_nombre()+", "+player.get_name()+": "+player.get_vida()+"Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
-							writer.write(player.get_name()+" "+ataq+" "+boss.get_nombre()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+
+							valor = player.ata_esp_jefe(what_esp,boss);
+							System.out.println(player.get_name()" utilizo "+ ataq +"contra "+boss.get_nombre()+", "player.get_name()": "+player.get_vida()+"Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+							writer.write(player.get_name()" "+ataq+" "+boss.get_nombre()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 							writer.write("\n");
 
 							if(valor == 0){
@@ -273,24 +345,55 @@ public class Nivel{
 						if (which_one.equals("Aliado")) {
 							if (esp_or_not == 1) {
 								boss.atacar_aliado(ally,player);
+
+								System.out.println(boss.get_nombre()+" ataca a Aliado, "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								writer.write(boss.get_nombre()+" ataca Aliado "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+								writer.write("\n");
+
+								if(ally.get_vida() == 0){
+									
+									System.out.println("Tu aliado ha sido derrotado!");
+									writer.write("Derrota del aliado");
+									writer.write("\n");
+								}
+
 								if (player.get_vida() == 0) {
 									// Casualidades de objeto el player muere
+									System.out.println("Game Over");
+									writer.write("Muerte de "+player.get_name());
+									writer.write("\n");
 									flag = 0;
 								}
 							} else if (esp_or_not == 2){
 								boss.ata_esp_aliado(ally,player);
+
+								System.out.println(boss.get_nombre()+" utilizo "+boss.get_esp()+" contra Aliado, "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								writer.write(boss.get_nombre()+" "+boss.get_esp()+" Aliado "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+								writer.write("\n");
+
+								if(ally.get_vida() == 0){
+
+									System.out.println("Tu aliado ha sido derrotado!");
+									writer.write("Derrota del aliado");
+									writer.write("\n");
+								}
+
 								if (player.get_vida() == 0) {
 									// Casualidades de objeto el player muere
+									System.out.println("Game Over");
+									writer.write("Muerte de "+player.get_name());
+									writer.write("\n");
 									flag = 0;
 								}
 							}
+
 						} else if (which_one.equals("Jugador")) {
 							if (esp_or_not == 1) {
 
 								valor = boss.atacar_jugador(player);
 
-								System.out.println(boss.get_nombre()+" ataca "+player.get_name()+", "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
-								writer.write(boss.get_nombre()+" ataque "+player.get_name()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+								System.out.println(boss.get_nombre()+"ataca "player.get_name()", "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								writer.write(boss.get_nombre()" ataque "player.get_name()" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 								writer.write("\n");
 
 								if(valor == 0){
@@ -304,10 +407,10 @@ public class Nivel{
 								}
 							} else if (esp_or_not == 2) {
 
-								valor = boss.ata_esp_jugador(player);
+								valor = boss.ata_esp_jugador(player)
 
-								System.out.println(boss.get_nombre()+" utilizo "+boss.get_esp()+" contra "+player.get_name()+", "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
-								writer.write(boss.get_nombre()+" "+boss.get_esp()+" "+player.get_name()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+								System.out.println(boss.get_nombre()+" utilizo "+boss.get_esp()+" contra "+player.get_name()", "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								writer.write(boss.get_nombre()" "+boss.get_esp()+" "player.get_name()" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 								writer.write("\n");
 
 								if ( valor == 0) {
