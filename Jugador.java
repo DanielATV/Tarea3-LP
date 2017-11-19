@@ -211,7 +211,7 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 	}
 
 	public int ata_esp_enemigo(int opc,Enemigo E){
-		int dano
+		int dano;
 		if (opc == 1 && cost_1 > 0) {
 			dano = ataque_especial(1,E.get_vida(),E.get_def());
 			E.set_vida(dano);	
@@ -226,7 +226,7 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 	}
 
 	public int ata_esp_jefe(int opc,Jefe J){
-		int dano
+		int dano;
 		if (opc == 1 && cost_1 > 0) {
 			dano = ataque_especial(1,J.get_vida(),J.get_def());
 			J.set_vida(dano);	
