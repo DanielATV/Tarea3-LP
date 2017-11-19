@@ -162,7 +162,7 @@ public class Juego {
 							playerDummy.set_obj(objJugDummy,1);
 							
 						}
-						else if (obj.equals("Lotus_Orb"){
+						else if (obj.equals("Lotus_Orb")){
 
 							objJugDummy.set_nombre(obj);
   							objJugDummy.set_atributo("vida");
@@ -246,7 +246,7 @@ public class Juego {
 						allyDummy.set_obj(objAllyDummy);
 						
 					}
-					else if (obj.equals("Lotus_Orb"){
+					else if (obj.equals("Lotus_Orb")){
 
 						objAllyDummy.set_nombre(obj);
 						objAllyDummy.set_atributo("vida");
@@ -292,7 +292,7 @@ public class Juego {
 
 					}
 
-					else if (obj.equals("Lotus_Orb"){
+					else if (obj.equals("Lotus_Orb")){
 
 						objNivDummy.set_nombre(obj);
 						objNivDummy.set_atributo("vida");
@@ -303,7 +303,7 @@ public class Juego {
   				}
   				else {
 
-  					cantEn = tokens[0];
+  					cantEn = Integer.parseInt(tokens[0]);
 
   					contador = 0;
 
