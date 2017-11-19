@@ -30,7 +30,7 @@ public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
 		return 1;
 	}
 
-	void set_ata(int ata)}{
+	void set_ata(int ata){
 		ataque = ata;
 	}
 
