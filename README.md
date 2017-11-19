@@ -20,3 +20,4 @@ Objetos:
 
 Consideraciones menores:
 Para los nombres, si son compuestos se deben separar con un guion bajo. (Ej Alan_Brito)
+La defensa no puede ser 0 o menos que 0.
