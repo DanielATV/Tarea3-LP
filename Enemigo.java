@@ -8,6 +8,20 @@ public class Enemigo extends Personaje implements Ataque{
 		this.defensa = def;
 	}
 
+	Enemigo(){
+		super(0);
+		this.ataque= 0;
+		this.defensa = 0;
+	}
+
+	void set_ata(int ata){
+		ataque = ata;
+	}
+
+	void set_def(int def){
+		defensa = def;
+	}
+
 	public void display(){
 		System.out.println("Vida: "+vida);
 		System.out.println("Ataque: "+ataque);
@@ -21,10 +35,6 @@ public class Enemigo extends Personaje implements Ataque{
 			return 0;
 		}
 		return 1;
-	}
-
-	public void set_vida(int vid){
-		vida = vid;
 	}
 
 	public int get_def(){

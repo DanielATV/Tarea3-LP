@@ -14,7 +14,14 @@ public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
         this.nombre = name;
 	}
 
-	int reduce_hp(int damage){
+	Jefe(){
+		super(0);
+		this.ataque=0;
+		this.defensa=0;
+		this.nombre="";
+	}
+
+	public int reduce_hp(int damage){
 		damage = damage - defensa;
 		vida = vida - damage;
 		if (vida <=0) {
@@ -23,7 +30,7 @@ public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
 		return 1;
 	}
 
-	int use_esp(String name, int def){
+	public int use_esp(String name, int def){
 		if (esp_1 == name) {
 			if (power_1 <= def) {
 				return 0;
@@ -32,24 +39,32 @@ public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
 		return ataque  +power_1 - def;
 	}
 
-	int get_def(){
+	public int get_def(){
 		return defensa;
 	}
 
-	int get_ata(){
+	public int get_ata(){
 		return ataque;
 	}
 
-	public void set_vida(int vid){
-		vida = vid;
+	public String get_esp(){
+		return esp_1;
 	}
 
-	void set_esp1(String name, int power){
+	public int get_power_esp(){
+		return power_1;
+	}
+
+	public String get_nombre(){
+		return nombre;
+	}
+
+	public void set_esp1(String name, int power){
 		this.esp_1 = name;
 		this.power_1 = power;
 	}
 
-	void display(){
+	public void display(){
 		System.out.println(nombre);
 		System.out.println("Vida: "+vida);
 		System.out.println("Ataque: "+ataque);
@@ -74,8 +89,6 @@ public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
 		J.set_vida(dano);
 		return dano;
 	}
-
-
 
 	public int atacar_aliado(Aliado A,Jugador J){
 		int dano = atacar(0,A.get_vida());

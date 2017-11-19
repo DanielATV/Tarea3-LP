@@ -21,12 +21,47 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
         this.nombre = name;
 	}
 
+	Jugador(){
+		super(0);
+		this.ataque = 0;
+		this.defensa = 0;
+		this.nombre = "";
+	}
+
 	public int get_def(){
 		return defensa;
 	}
 
+	public int get_pp1(){
+		return cost_1;
+	}
+
+	public int get_pp2(){
+		return cost_2;
+	}
+
 	public int get_ata(){
 		return ataque;
+	}
+
+	public String get_esp1(){
+		return esp_1;
+	}
+
+	public String get_esp2(){
+		return esp_2;
+	}
+
+	public String get_name(){
+		return nombre;
+	}
+
+	public int get_power_esp1(){
+		return power_1;
+	}
+
+	public int get_power_esp2(){
+		return power_2;
 	}
 
 	public void set_esp1(String name, int power, int pp){
@@ -71,9 +106,9 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 	public void set_def(int def){
 		defensa = def;
 	}
-	
-	public void set_vida(int vid){
-		vida = vid;
+
+	public void set_name(String name){
+		nombre = name;
 	}
 
 	public int reduce_hp(int damage){
@@ -138,6 +173,7 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 
 	public int ataque_especial(int opc,int vid, int def){
 		if (opc == 1) {
+			cost_1--;
 			if ((ataque + power_1 - def) <= 0) {
 				return 0;
 			} else if ((ataque + power_1 - def) > 0) {
@@ -148,6 +184,7 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 				}
 			}	
 		} else if (opc == 2) {
+			cost_2--;
 			if ((ataque + power_2 - def)<=0) {
 				return 0;
 			} else if ((ataque + power_2 - def) > 0) {
