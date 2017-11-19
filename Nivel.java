@@ -113,7 +113,7 @@ public class Nivel{
 					System.out.println("Todos los enemigos han sido derrotados!");
 					writer.write("Todos los enemigos han sido derrotados");
 					writer.write("\n");
-					choice == 3;
+					choice = 3;
 
 				}
 				if (choice == 1) { 
@@ -133,7 +133,7 @@ public class Nivel{
 					while(enemy.get_vida()>0 && player.get_vida()>0){
 						// Ataque del player
 
-						if(player.get_power_esp1>0 || player.get_power_esp2>0){
+						if(player.get_power_esp1()>0 || player.get_power_esp2()>0){
 
 							esp_or_not = test.atack_choice();
 
@@ -165,7 +165,7 @@ public class Nivel{
 
 							if (what_esp == 1){
 
-								if(player.get_power_esp1>0){
+								if(player.get_power_esp1()>0){
 									ataq = player.get_esp1();
 
 								}
@@ -176,7 +176,7 @@ public class Nivel{
 
 							}
 							else if (what_esp == 2 ){
-								if(player.get_power_esp2>0){
+								if(player.get_power_esp2()>0){
 
 									ataq = player.get_esp2();
 								}
@@ -265,7 +265,7 @@ public class Nivel{
 					while(boss.get_vida()>0 && player.get_vida()>0){
 						// Ataque del player
 
-						if(player.get_power_esp1>0 || player.get_power_esp2>0){
+						if(player.get_power_esp1()>0 || player.get_power_esp2()>0){
 
 							esp_or_not = test.atack_choice();
 
@@ -302,7 +302,7 @@ public class Nivel{
 
 							if (what_esp == 1){
 
-								if(player.get_power_esp1>0){
+								if(player.get_power_esp1()>0){
 									ataq = player.get_esp1();
 
 								}
@@ -314,7 +314,7 @@ public class Nivel{
 							}
 							else if (what_esp == 2 ){
 
-								if(player.get_power_esp2>0){
+								if(player.get_power_esp2()>0){
 
 									ataq = player.get_esp2();
 								}
@@ -325,8 +325,8 @@ public class Nivel{
 							}
 
 							valor = player.ata_esp_jefe(what_esp,boss);
-							System.out.println(player.get_name()" utilizo "+ ataq +"contra "+boss.get_nombre()+", "player.get_name()": "+player.get_vida()+"Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
-							writer.write(player.get_name()" "+ataq+" "+boss.get_nombre()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+							System.out.println(player.get_name()+" utilizo "+ ataq +"contra "+boss.get_nombre()+", "+player.get_name()+": "+player.get_vida()+"Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+							writer.write(player.get_name()+" "+ataq+" "+boss.get_nombre()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 							writer.write("\n");
 
 							if(valor == 0){
@@ -346,7 +346,7 @@ public class Nivel{
 							if (esp_or_not == 1) {
 								boss.atacar_aliado(ally,player);
 
-								System.out.println(boss.get_nombre()+" ataca a Aliado, "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								System.out.println(boss.get_nombre()+" ataca a Aliado, "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
 								writer.write(boss.get_nombre()+" ataca Aliado "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 								writer.write("\n");
 
@@ -367,7 +367,7 @@ public class Nivel{
 							} else if (esp_or_not == 2){
 								boss.ata_esp_aliado(ally,player);
 
-								System.out.println(boss.get_nombre()+" utilizo "+boss.get_esp()+" contra Aliado, "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								System.out.println(boss.get_nombre()+" utilizo "+boss.get_esp()+" contra Aliado, "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
 								writer.write(boss.get_nombre()+" "+boss.get_esp()+" Aliado "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 								writer.write("\n");
 
@@ -392,8 +392,8 @@ public class Nivel{
 
 								valor = boss.atacar_jugador(player);
 
-								System.out.println(boss.get_nombre()+"ataca "player.get_name()", "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
-								writer.write(boss.get_nombre()" ataque "player.get_name()" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+								System.out.println(boss.get_nombre()+"ataca "+player.get_name()+", "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								writer.write(boss.get_nombre()+" ataque "+player.get_name()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 								writer.write("\n");
 
 								if(valor == 0){
@@ -407,10 +407,10 @@ public class Nivel{
 								}
 							} else if (esp_or_not == 2) {
 
-								valor = boss.ata_esp_jugador(player)
+								valor = boss.ata_esp_jugador(player);
 
-								System.out.println(boss.get_nombre()+" utilizo "+boss.get_esp()+" contra "+player.get_name()", "player.get_name()": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
-								writer.write(boss.get_nombre()" "+boss.get_esp()+" "player.get_name()" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
+								System.out.println(boss.get_nombre()+" utilizo "+boss.get_esp()+" contra "+player.get_name()+", "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								writer.write(boss.get_nombre()+" "+boss.get_esp()+" "+player.get_name()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 								writer.write("\n");
 
 								if ( valor == 0) {
