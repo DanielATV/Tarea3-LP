@@ -333,36 +333,34 @@ public class Juego {
 				
 				
 				
-				(nivelDummy.get_player())
+				
+				
+				
+				Objeto objAuxAlly = new Objeto(objAllyDummy.getNombre(),objAllyDummy.getAtributo(),objAllyDummy.getValor());
 
-				
-				
-				
+				Aliado aliadoAuxiliar = new Aliado((nivelDummy.get_ally()).get_vida(),objAuxAlly);
 
-				(nivelDummy.get_ally())
-				
+				Enemigo enemigoAuxiliar = new Enemigo((nivelDummy.get_enemy()).get_vida(),(nivelDummy.get_enemy()).get_def(),(nivelDummy.get_enemy()).get_ata());
 
+				Objeto objAuxNivel =new Objeto((nivelDummy.get_obj()).getNombre(),(nivelDummy.get_obj()).getAtributo(),(nivelDummy.get_obj()).getValor())
 
 
 				
 				if (flag){
-
-					Aliado aliadoAuxiliar = new Aliado((nivelDummy.get_ally()).get_vida(),objAllyDummy );
+					
 
 					flag = false;
 
-					listaNiveles.add(new Nivel(nombreNiv,,nivelDummy.get_jefe(),aliadoAuxiliar,new Objeto((nivelDummy.get_obj()).getNombre(),(nivelDummy.get_obj()).getAtributo(),(nivelDummy.get_obj()).getValor()),new Enemigo((nivelDummy.get_enemy()).get_vida(),(nivelDummy.get_enemy()).get_def(),(nivelDummy.get_enemy()).get_ata()),cantEn));
-
+					
 				}
 
 				else{
 
-					Aliado aliadoAuxiliar = new Aliado((nivelDummy.get_ally()).get_vida(),objAllyDummy );
-
-					listaNiveles.add(new Nivel(nombreNiv,,nivelDummy.get_jefe(),aliadoAuxiliar,new Objeto((nivelDummy.get_obj()).getNombre(),(nivelDummy.get_obj()).getAtributo(),(nivelDummy.get_obj()).getValor()),new Enemigo((nivelDummy.get_enemy()).get_vida(),(nivelDummy.get_enemy()).get_def(),(nivelDummy.get_enemy()).get_ata()),cantEn));
-
+					//do smt	
 
 				}
+
+				listaNiveles.add(new Nivel(nombreNiv,nivelDummy.get_player(),nivelDummy.get_jefe(),aliadoAuxiliar,objAuxNivel ,enemigoAuxiliar,cantEn));
 				
 				
 				
