@@ -903,6 +903,8 @@ public class Juego {
 						listaNiveles.add(nivel);
 						writer.close();
 
+						System.out.println("Nivel Creado");
+
 					}
 					catch (IOException e) {
 						e.printStackTrace();
@@ -912,7 +914,51 @@ public class Juego {
 					}
 				}
 				else if (linea.equals("2")){
-					System.out.println("Test");
+
+					i = 0;
+					size = listaNiveles.size();
+					while(i < size){
+						N = listaNiveles.get(i);
+						name = N.get_name();
+						System.out.println((i+1)+". "+name);
+		
+						i++;
+					}
+
+					menu = true;
+
+					while(menu){
+
+						System.out.print("Opcion: ");
+						linea = reader.readLine();
+						try{
+
+							opcion = Integer.parseInt(linea);
+
+						} catch(NumberFormatException e){
+
+							System.out.println("Debe ser un numero");
+
+						}
+
+						if ((opcion-1) < 0 || (opcion-1) >  size ){
+							System.out.println("Opcion no valida");
+						}
+
+						else{
+
+							N = listaNiveles.get(opcion-1);
+							menu = false;
+
+							Simulator(N);
+
+						}
+
+					}
+
+						
+					
+
 				}
 				else if (linea.equals("3")){
 
@@ -928,6 +974,7 @@ public class Juego {
 					
 
 					menu = true;
+
 					while(menu){
 
 						System.out.print("Opcion: ");
@@ -969,6 +1016,8 @@ public class Juego {
 
 							(N.get_enemy()).display();
 
+							System.out.println("Fin de informacion");
+
 							
 
 
@@ -980,6 +1029,7 @@ public class Juego {
 				}
 				else if(linea.equals("4")){
 					juego = false;
+					System.out.println("Cerrando juego");
 				}
 				else{
 					System.out.println("Opcion no valida");
