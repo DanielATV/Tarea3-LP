@@ -42,6 +42,7 @@ public class Juego {
 		String name;
 		int size;
 		int i;
+		boolean flag = false;
 	  
 
 		List<Nivel> listaNiveles = new ArrayList<Nivel>();
@@ -138,6 +139,8 @@ public class Juego {
 
 				if (tokens.length == 7){
 					obj= tokens[6];
+
+					flag = true;
 
 	  				if (obj.equals("Veil_of_Discord")){
 
@@ -330,13 +333,39 @@ public class Juego {
 				
 				
 				
+				(nivelDummy.get_player())
 
 				
 				
 				
+
+				(nivelDummy.get_ally())
+				
+
+
+
+				
+				if (flag){
+
+					Aliado aliadoAuxiliar = new Aliado((nivelDummy.get_ally()).get_vida(),objAllyDummy );
+
+					flag = false;
+
+					listaNiveles.add(new Nivel(nombreNiv,,nivelDummy.get_jefe(),aliadoAuxiliar,new Objeto((nivelDummy.get_obj()).getNombre(),(nivelDummy.get_obj()).getAtributo(),(nivelDummy.get_obj()).getValor()),new Enemigo((nivelDummy.get_enemy()).get_vida(),(nivelDummy.get_enemy()).get_def(),(nivelDummy.get_enemy()).get_ata()),cantEn));
+
+				}
+
+				else{
+
+					Aliado aliadoAuxiliar = new Aliado((nivelDummy.get_ally()).get_vida(),objAllyDummy );
+
+					listaNiveles.add(new Nivel(nombreNiv,,nivelDummy.get_jefe(),aliadoAuxiliar,new Objeto((nivelDummy.get_obj()).getNombre(),(nivelDummy.get_obj()).getAtributo(),(nivelDummy.get_obj()).getValor()),new Enemigo((nivelDummy.get_enemy()).get_vida(),(nivelDummy.get_enemy()).get_def(),(nivelDummy.get_enemy()).get_ata()),cantEn));
+
+
+				}
 				
 				
-				listaNiveles.add(new Nivel(nombreNiv,nivelDummy.get_player(),nivelDummy.get_jefe(),nivelDummy.get_ally(),nivelDummy.get_obj(),new Enemigo((nivelDummy.get_enemy()).get_vida(),(nivelDummy.get_enemy()).get_def(),(nivelDummy.get_enemy()).get_ata()),cantEn));
+				
 
 	
 
