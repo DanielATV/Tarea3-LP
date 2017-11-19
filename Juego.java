@@ -228,24 +228,24 @@ public class Juego {
 
 				if (tokens[5].equals("Guillotine_Fist")){
 
-					playerDummy.set_esp2(ataque1,200,30);
+					playerDummy.set_esp2(ataque2,200,30);
 
 				}
 				else if (tokens[5].equals("Rising_Dragon")){
 
-					playerDummy.set_esp2(ataque1,500,25);
+					playerDummy.set_esp2(ataque2,500,25);
 
 
 				}
 				else if (tokens[5].equals("Knuckle_ArrowFist")){
 
-					playerDummy.set_esp2(ataque1,100,50);
+					playerDummy.set_esp2(ataque2,100,50);
 
 
 				}
 				else if (tokens[5].equals("Gate_of_Hell")){
 
-					playerDummy.set_esp2(ataque1,5000,5);
+					playerDummy.set_esp2(ataque2,5000,5);
 
 				}
 
@@ -963,9 +963,13 @@ public class Juego {
 
 							(N.get_obj()).display();
 
+							System.out.println("Cantidad de enemigos: " + N.get_cant());
+
+							System.out.println("Enemigo");
+
 							(N.get_enemy()).display();
 
-							System.out.println("Cantidad de enemigos: " + N.get_cant());
+							
 
 
 
