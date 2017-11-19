@@ -146,6 +146,7 @@ public class Juego {
 	  	String lineaAux = "";
 	  	boolean menu;
 	  	boolean subMenu;
+	  	int opcion;
 	  	
 	  	StringBuffer stringBuffer = new StringBuffer();
 	  	String[] tokens;
@@ -926,6 +927,22 @@ public class Juego {
 					}
 					System.out.print("Opcion: ");
 					linea = reader.readLine();
+
+					menu = true
+					while(menu){
+						opcion = Integer.parseInt(linea);
+
+						if ((opcion-1) < 0 || (opcion-1) >  size ){
+							System.out.println("Opcion no valida");
+						}
+
+						else{
+							N = listaNiveles.get(opcion);
+
+							System.out.println("Nombre del nivel: " + N.get_name());
+						}
+
+					}
 
 				}
 				else if(linea.equals("4")){
