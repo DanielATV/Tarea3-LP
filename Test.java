@@ -58,34 +58,5 @@ public class Test {
 		}
 	}
 
-	public static void main(String[] args) {
-		int a;
-		int c=0;
-		test B = new test(20);
-		while(c < 25){
-			a = B.rand_path();
-			if (a == 3) {
-				break;
-			}
-			c++;
-		}
-		c = 0;
-		while(c < 5){
-			System.out.println("Opcion de ataque: "+B.rand_atack(0));
-			c++;
-		}
-		c = 0;
-		while(c < 5){
-			a = B.atack_choice();
-			if(a==2){
-				System.out.println("Ataque Especial "+B.select_esp());
-			} else if (a == 1) {
-				System.out.println("Ataque Normal");
-			} else {
-				System.out.println("Wea mas rara");
-			}
-			c++;
-		}
 
-	}
 }
