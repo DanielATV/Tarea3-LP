@@ -6,6 +6,10 @@ public class Aliado extends Personaje{
 		this.A = B;
 	}
 
+	public void set_obj(Objeto ob){
+		A = ob;
+	}
+
 	void assign_item(Jugador C){
 		if (A.getAtributo()=="vida"){
 			C.set_vida(C.get_vida()+A.getValor());
@@ -43,9 +47,6 @@ public class Aliado extends Personaje{
 
 	public void set_vida(int vid){
 		vida = vid;
-	}
-	public void set_obj(Objeto ob){
-		A = ob;
 	}
 
 	void display(){
