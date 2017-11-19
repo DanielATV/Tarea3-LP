@@ -146,7 +146,7 @@ public class Juego {
 	  	String lineaAux = "";
 	  	boolean menu;
 	  	boolean subMenu;
-	  	int opcion;
+	  	int opcion = -1;
 	  	
 	  	StringBuffer stringBuffer = new StringBuffer();
 	  	String[] tokens;
@@ -925,19 +925,33 @@ public class Juego {
 		
 						i++;
 					}
-					System.out.print("Opcion: ");
-					linea = reader.readLine();
+					
 
-					menu = true
+					menu = true;
 					while(menu){
-						opcion = Integer.parseInt(linea);
+
+						System.out.print("Opcion: ");
+						linea = reader.readLine();
+
+						
+						try{
+
+							opcion = Integer.parseInt(linea);
+
+
+						} catch(NumberFormatException e){
+
+							System.out.println("Debe ser un numero");
+
+						}
 
 						if ((opcion-1) < 0 || (opcion-1) >  size ){
 							System.out.println("Opcion no valida");
 						}
 
 						else{
-							N = listaNiveles.get(opcion);
+							N = listaNiveles.get(opcion-1);
+							menu = false;
 
 							System.out.println("Nombre del nivel: " + N.get_name());
 						}
