@@ -17,8 +17,7 @@ CLASSES = \
         Nivel.java \
         Objeto.java \
         Personaje.java \
-        Simulador.java \
-        test.java
+        Test.java
 
 default: classes
 
