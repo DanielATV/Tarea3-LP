@@ -54,7 +54,7 @@ public class Juego {
 
 
   	try{
-  		
+
   		File file = new File("niveles.txt");
 	  	FileReader fileReader = new FileReader(file);
 	  	BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -802,10 +802,12 @@ public class Juego {
 				while(i < size){
 					N = listaNiveles.get(i);
 					name = N.get_name();
-					System.out.println((i+1)+" "+name);
+					System.out.println((i+1)+". "+name);
 	
 					i++;
 				}
+				System.out.print("Opcion: ");
+				linea = reader.readLine();
 
 			}
 			else if(linea.equals("4")){
