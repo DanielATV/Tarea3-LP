@@ -836,7 +836,7 @@ public class Juego {
 							niv = listaNiveles.get(opcion-1);
 							menu = false;
 
-							resultado = niv.simulator(niv);
+							niv.simulator(niv);
 
 						}
 
