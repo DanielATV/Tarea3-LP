@@ -1,0 +1,10 @@
+Nivel N;
+String name;
+int size = listaNiveles.size();
+int i=0;
+while(i < size){
+	N = listaNiveles.get(i);
+	name = N.get_name();
+	System.out.println(i+" "+name);
+	i++;
+}
