@@ -24,5 +24,29 @@ public class Nivel{
 	public String getName(){
 		return nombreNivel;
 	}
+	
+	public Jugador get_player(){
+		return player;
+	}
+	
+	public Jefe get_jefe(){
+		return boss;
+	}
+	
+	public Aliado get_ally(){
+		return ally;
+	}
+	
+	public Objeto get_obj(){
+		return obj;
+	}
+	
+	public Enemigo get_enemy(){
+		return enemy;
+	}
+	
+	public int cant_ene(){
+		return cantidadEnemigos;
+	}
 
 }
