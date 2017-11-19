@@ -135,7 +135,7 @@ public class Juego {
 
 
 						}
-						else if (obj.equals("Chainmail"){
+						else if (obj.equals("Chainmail")){
 
 							objJugDummy.set_nombre(obj);
   							objJugDummy.set_atributo("defensa");
