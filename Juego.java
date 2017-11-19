@@ -323,6 +323,7 @@ public class Juego {
   					nivelDummy.set_obj(objNivDummy);
   					nivelDummy.set_enemy(eneDummy);
   					nivelDummy.set_cant(cantEn);
+  					listaNiveles.add(nivelDummy);
   	
 
 
@@ -332,6 +333,20 @@ public class Juego {
   			}
 
   			fileReader.close();
+
+  			System.out.println("Niveles cargados:");
+
+  			Nivel N;
+			String name;
+			int size = listaNiveles.size();
+			int i=0;
+			while(i < size){
+				N = listaNiveles.get(i);
+				name = N.get_name();
+				System.out.println((i+1)+" "+name);
+	
+			i++;
+			}
 
 
 			System.out.println("1. Crear Nivel");
