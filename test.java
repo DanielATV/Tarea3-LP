@@ -32,7 +32,7 @@ public class test {
 			System.out.println("Enemigo Encontrado!! - Restantes: "+cant_enemigos);
 			return 2;
 		} else if (random.equals("Jefe")) {
-			// list_path.remove(random);
+			list_path.remove(random);
 			System.out.println("Batalla Final!!");
 			return 3;
 		}
@@ -49,8 +49,8 @@ public class test {
 		return b;
 	}
 
-	String rand_atack(int ally_dead){
-		if (ally_dead == 1) {
+	String rand_atack(int ally_hp){
+		if (ally_hp == 0) {
 			return list_ally.get(0);
 		} else {
 			random = list_ally.get(new Random().nextInt(list_ally.size()));

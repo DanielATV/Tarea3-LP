@@ -211,14 +211,33 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 	}
 
 	public int ata_esp_enemigo(int opc,Enemigo E){
-		int dano = ataque_especial(opc,E.get_vida(),E.get_def());
-		E.set_vida(dano);
+		int dano
+		if (opc == 1 && cost_1 > 0) {
+			dano = ataque_especial(1,E.get_vida(),E.get_def());
+			E.set_vida(dano);	
+		} else if (opc == 2 && cost_2 > 0) {
+			dano = ataque_especial(2,E.get_vida(),E.get_def());
+			E.set_vida(dano);	
+		} else {
+			dano = atacar(E.get_def(),E.get_vida());
+			E.set_vida(dano);
+		}
 		return dano;
 	}
 
 	public int ata_esp_jefe(int opc,Jefe J){
-		int dano = ataque_especial(opc,J.get_vida(),J.get_def());
-		J.set_vida(dano);
+		int dano
+		if (opc == 1 && cost_1 > 0) {
+			dano = ataque_especial(1,J.get_vida(),J.get_def());
+			J.set_vida(dano);	
+		} else if (opc == 2 && cost_2 > 0) {
+			dano = ataque_especial(2,J.get_vida(),J.get_def());
+			J.set_vida(dano);	
+		} else {
+			dano = atacar(J.get_def(),J.get_vida());
+			J.set_vida(dano);
+		}
 		return dano;
 	}
+
 }

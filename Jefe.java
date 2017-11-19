@@ -114,15 +114,18 @@ public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
 		return vid;
 	}
 
-	public int ata_esp_jugador(int opc,Jugador J){
+	public int ata_esp_jugador(Jugador J){
 		int dano = ataque_especial(1,J.get_vida(),J.get_def());
 		J.set_vida(dano);
 		return dano;
 	}
 
-	public int ata_esp_aliado(int opc,Aliado A){
+	public int ata_esp_aliado(Aliado A, Jugador J){
 		int dano = ataque_especial(1,A.get_vida(),0);
 		A.set_vida(dano);
+		if (dano == 0) {
+			A.delete_item(J);
+		}
 		return dano;
 	}
 }
