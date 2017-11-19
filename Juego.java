@@ -36,6 +36,7 @@ public class Juego {
   	Nivel N;
 	String name;
 	int size;
+	int i;
   
 
 	List<Nivel> listaNiveles = new ArrayList<Nivel>();
@@ -52,304 +53,310 @@ public class Juego {
 
 
 
+  	try{
+  		
+  		File file = new File("niveles.txt");
+	  	FileReader fileReader = new FileReader(file);
+	  	BufferedReader bufferedReader = new BufferedReader(fileReader);
+	  	contador = 0;
+
+  		while ((linea = bufferedReader.readLine()) != null){
+  		tokens = linea.split(" ");
+
+  		if (contador == 0){
+  			contador += 1;
+  			nombreNiv = tokens[0];
+  					
+
+  		}
+  		else if(contador == 1){
+
+  			contador += 1;
+
+  			nombreJug =tokens[0];
+  			playerDummy.set_nombre(nombreJug);
+  			vidaJug = Integer.parseInt(tokens[1]);
+  			playerDummy.set_vida(vidaJug);
+			ataqJug =  Integer.parseInt(tokens[2]);
+			playerDummy.set_ata(ataqJug);
+			defJug = Integer.parseInt(tokens[3]);
+			playerDummy.set_def(defJug);
+
+			ataque1 = tokens[4];
+			ataque2 = tokens[5];
+
+			if (tokens[4].equals("Guillotine_Fist")){
+
+				playerDummy.set_esp1(ataque1,200,30);
+
+			}
+			else if (tokens[4].equals("Rising_Dragon")){
+
+				playerDummy.set_esp1(ataque1,500,25);
+
+			}
+			else if (tokens[4].equals("Knuckle_ArrowFist")){
+
+				playerDummy.set_esp1(ataque1,100,50);
+
+
+			}
+			else if (tokens[4].equals("Gate_of_Hell")){
+
+				playerDummy.set_esp1(ataque1,5000,5);
+
+			}
+
+			if (tokens[5].equals("Guillotine_Fist")){
+
+				playerDummy.set_esp2(ataque1,200,30);
+
+			}
+			else if (tokens[5].equals("Rising_Dragon")){
+
+				playerDummy.set_esp2(ataque1,500,25);
+
+
+			}
+			else if (tokens[5].equals("Knuckle_ArrowFist")){
+
+				playerDummy.set_esp2(ataque1,100,50);
+
+
+			}
+			else if (tokens[5].equals("Gate_of_Hell")){
+
+				playerDummy.set_esp2(ataque1,5000,5);
+
+			}
+
+			if (tokens.length == 7){
+				obj= tokens[6];
+
+  				if (obj.equals("Veil_of_Discord")){
+
+  					objJugDummy.set_nombre(obj);
+  					objJugDummy.set_atributo("defensa");
+  					objJugDummy.set_valor(600);
+
+  		
+						
+					playerDummy.set_obj(objJugDummy,1);
+
+
+				}
+				else if (obj.equals("Chainmail")){
+
+					objJugDummy.set_nombre(obj);
+  					objJugDummy.set_atributo("defensa");
+  					objJugDummy.set_valor(500);
+	
+							
+					playerDummy.set_obj(objJugDummy,1);
+
+
+							
+				}
+				else if (obj.equals("Guardian_Greaves")){
+
+					objJugDummy.set_nombre(obj);
+  					objJugDummy.set_atributo("vida");
+  					objJugDummy.set_valor(500);
+
+		
+					playerDummy.set_obj(objJugDummy,1);
+							
+				}
+				else if (obj.equals("Lotus_Orb")){
+
+					objJugDummy.set_nombre(obj);
+  					objJugDummy.set_atributo("vida");
+  					objJugDummy.set_valor(1000);
+
+							
+					playerDummy.set_obj(objJugDummy,1);
+
+				}
+			}
+
+					
+
+  		}
+  		else if(contador == 2){
+
+			contador += 1;
+			nombreJug =tokens[0];
+			bossDummy.set_nombre(nombreJug);
+			vidaJug = Integer.parseInt(tokens[1]);
+			bossDummy.set_vida(vidaJug);
+			ataqJug =  Integer.parseInt(tokens[2]);
+			bossDummy.set_ata(ataqJug);
+			defJug = Integer.parseInt(tokens[3]);
+			bossDummy.set_def(defJug);
+
+			ataque1 = tokens[4];
+
+			if (tokens[4].equals("Cannon_Spear")){
+
+				bossDummy.set_esp1(ataque1,300);
+
+
+			}
+
+			else if (tokens[4].equals("Limit_Break")){
+						
+				bossDummy.set_esp1(ataque1,10000);
+
+			}
+
+  		}
+  		else if(contador == 3){
+  			contador += 1;
+
+  			vidaJug = Integer.parseInt(tokens[0]);
+  			allyDummy.set_vida(vidaJug);
+
+  			obj= tokens[1];
+
+			if (obj.equals("Veil_of_Discord")){
+
+				objAllyDummy.set_nombre(obj);
+				objAllyDummy.set_atributo("defensa");
+				objAllyDummy.set_valor(600);
+
+	
+				allyDummy.set_obj(objAllyDummy);
+
+
+			}
+
+			else if (obj.equals("Chainmail")){
+				objAllyDummy.set_nombre(obj);
+				objAllyDummy.set_atributo("defensa");
+				objAllyDummy.set_valor(500);
+
+				
+				allyDummy.set_obj(objAllyDummy);
+
+
+				
+			}
+			else if (obj.equals("Guardian_Greaves")){
+
+				objAllyDummy.set_nombre(obj);
+				objAllyDummy.set_atributo("vida");
+				objAllyDummy.set_valor(500);
+
+
+				allyDummy.set_obj(objAllyDummy);
+				
+			}
+			else if (obj.equals("Lotus_Orb")){
+
+				objAllyDummy.set_nombre(obj);
+				objAllyDummy.set_atributo("vida");
+				objAllyDummy.set_valor(1000);
+
+				
+				allyDummy.set_obj(objAllyDummy);
+
+			}
+
+
+  		}
+		else if(contador == 4){
+			contador += 1;
+			obj= tokens[0];
+
+			if (obj.equals("Veil_of_Discord")){
+
+				objNivDummy.set_nombre(obj);
+				objNivDummy.set_atributo("defensa");
+				objNivDummy.set_valor(600);
+
+
+			}
+
+			else if (obj.equals("Chainmail")){
+
+				objNivDummy.set_nombre(obj);
+				objNivDummy.set_atributo("defensa");
+				objNivDummy.set_valor(500);
+
+							
+			}
+			else if (obj.equals("Guardian_Greaves")){
+
+				objNivDummy.set_nombre(obj);
+				objNivDummy.set_atributo("vida");
+				objNivDummy.set_valor(500);
+
+			}
+
+			else if (obj.equals("Lotus_Orb")){
+
+				objNivDummy.set_nombre(obj);
+				objNivDummy.set_atributo("vida");
+				objNivDummy.set_valor(1000);
+
+			}
+		}
+  		else {
+  			cantEn = Integer.parseInt(tokens[0]);
+
+			vidaJug = Integer.parseInt(tokens[1]);
+			eneDummy.set_vida(vidaJug);
+			ataqJug =  Integer.parseInt(tokens[2]);
+			eneDummy.set_ata(ataqJug);
+			defJug = Integer.parseInt(tokens[3]);
+			eneDummy.set_def(defJug);
+
+			contador = 0;
+
+			nivelDummy.set_name(nombreNiv);
+			nivelDummy.set_player(playerDummy);
+			nivelDummy.set_jefe(bossDummy);
+			nivelDummy.set_ally(allyDummy);
+			nivelDummy.set_obj(objNivDummy);
+			nivelDummy.set_enemy(eneDummy);
+			nivelDummy.set_cant(cantEn);
+			listaNiveles.add(nivelDummy);
+
+
+
+		}
+
+
+	}
+
+	fileReader.close();
+
+	System.out.println("Niveles cargados:");
+
+		
+	size = listaNiveles.size();
+	i=0;
+
+	while(i < size){
+		N = listaNiveles.get(i);
+		name = N.get_name();
+		System.out.println(name);
+
+		i++;
+	}
+
+  	}catch(IOException ioe){
+
+  		ioe.printStackTrace();
+	}
+
+
+
   	while(juego){
 
   		try{
 
-  			File file = new File("niveles.txt");
-  			FileReader fileReader = new FileReader(file);
-  			BufferedReader bufferedReader = new BufferedReader(fileReader);
-  			contador = 0;
-
-  			while ((linea = bufferedReader.readLine()) != null){
-  				tokens = linea.split(" ");
-
-  				if (contador == 0){
-  					contador += 1;
-  					nombreNiv = tokens[0];
-  					
-
-  				}
-  				else if(contador == 1){
-
-  					contador += 1;
-
-  					nombreJug =tokens[0];
-  					playerDummy.set_nombre(nombreJug);
-  					vidaJug = Integer.parseInt(tokens[1]);
-  					playerDummy.set_vida(vidaJug);
-					ataqJug =  Integer.parseInt(tokens[2]);
-					playerDummy.set_ata(ataqJug);
-					defJug = Integer.parseInt(tokens[3]);
-					playerDummy.set_def(defJug);
-
-					ataque1 = tokens[4];
-					ataque2 = tokens[5];
-
-					if (tokens[4].equals("Guillotine_Fist")){
-
-						playerDummy.set_esp1(ataque1,200,30);
-
-					}
-					else if (tokens[4].equals("Rising_Dragon")){
-
-						playerDummy.set_esp1(ataque1,500,25);
-
-					}
-					else if (tokens[4].equals("Knuckle_ArrowFist")){
-
-						playerDummy.set_esp1(ataque1,100,50);
-
-
-					}
-					else if (tokens[4].equals("Gate_of_Hell")){
-
-						playerDummy.set_esp1(ataque1,5000,5);
-
-					}
-
-					if (tokens[5].equals("Guillotine_Fist")){
-
-						playerDummy.set_esp2(ataque1,200,30);
-
-					}
-					else if (tokens[5].equals("Rising_Dragon")){
-
-						playerDummy.set_esp2(ataque1,500,25);
-
-
-					}
-					else if (tokens[5].equals("Knuckle_ArrowFist")){
-
-						playerDummy.set_esp2(ataque1,100,50);
-
-
-					}
-					else if (tokens[5].equals("Gate_of_Hell")){
-
-						playerDummy.set_esp2(ataque1,5000,5);
-
-					}
-
-					if (tokens.length == 7){
-						obj= tokens[6];
-
-  						if (obj.equals("Veil_of_Discord")){
-
-  							objJugDummy.set_nombre(obj);
-  							objJugDummy.set_atributo("defensa");
-  							objJugDummy.set_valor(600);
-
-  		
-						
-							playerDummy.set_obj(objJugDummy,1);
-
-
-						}
-						else if (obj.equals("Chainmail")){
-
-							objJugDummy.set_nombre(obj);
-  							objJugDummy.set_atributo("defensa");
-  							objJugDummy.set_valor(500);
-	
-							
-							playerDummy.set_obj(objJugDummy,1);
-
-
-							
-						}
-						else if (obj.equals("Guardian_Greaves")){
-
-							objJugDummy.set_nombre(obj);
-  							objJugDummy.set_atributo("vida");
-  							objJugDummy.set_valor(500);
-
-		
-							playerDummy.set_obj(objJugDummy,1);
-							
-						}
-						else if (obj.equals("Lotus_Orb")){
-
-							objJugDummy.set_nombre(obj);
-  							objJugDummy.set_atributo("vida");
-  							objJugDummy.set_valor(1000);
-
-							
-							playerDummy.set_obj(objJugDummy,1);
-
-						}
-					}
-
-					
-
-  				}
-  				else if(contador == 2){
-
-  					contador += 1;
-  					nombreJug =tokens[0];
-  					bossDummy.set_nombre(nombreJug);
-  					vidaJug = Integer.parseInt(tokens[1]);
-  					bossDummy.set_vida(vidaJug);
-					ataqJug =  Integer.parseInt(tokens[2]);
-					bossDummy.set_ata(ataqJug);
-					defJug = Integer.parseInt(tokens[3]);
-					bossDummy.set_def(defJug);
-
-					ataque1 = tokens[4];
-
-					if (tokens[4].equals("Cannon_Spear")){
-
-						bossDummy.set_esp1(ataque1,300);
-
-
-					}
-
-					else if (tokens[4].equals("Limit_Break")){
-						
-						bossDummy.set_esp1(ataque1,10000);
-
-					}
-
-  				}
-  				else if(contador == 3){
-  					contador += 1;
-
-  					vidaJug = Integer.parseInt(tokens[0]);
-  					allyDummy.set_vida(vidaJug);
-
-  					obj= tokens[1];
-
-					if (obj.equals("Veil_of_Discord")){
-
-						objAllyDummy.set_nombre(obj);
-						objAllyDummy.set_atributo("defensa");
-						objAllyDummy.set_valor(600);
-
-	
-						allyDummy.set_obj(objAllyDummy);
-
-
-					}
-
-					else if (obj.equals("Chainmail")){
-						objAllyDummy.set_nombre(obj);
-						objAllyDummy.set_atributo("defensa");
-						objAllyDummy.set_valor(500);
-
-						
-						allyDummy.set_obj(objAllyDummy);
-
-
-						
-					}
-					else if (obj.equals("Guardian_Greaves")){
-
-						objAllyDummy.set_nombre(obj);
-						objAllyDummy.set_atributo("vida");
-						objAllyDummy.set_valor(500);
-
-	
-						allyDummy.set_obj(objAllyDummy);
-						
-					}
-					else if (obj.equals("Lotus_Orb")){
-
-						objAllyDummy.set_nombre(obj);
-						objAllyDummy.set_atributo("vida");
-						objAllyDummy.set_valor(1000);
-
-						
-						allyDummy.set_obj(objAllyDummy);
-
-					}
-
-
-  				}
-  				else if(contador == 4){
-  					contador += 1;
-  					obj= tokens[0];
-
-					if (obj.equals("Veil_of_Discord")){
-
-						objNivDummy.set_nombre(obj);
-						objNivDummy.set_atributo("defensa");
-						objNivDummy.set_valor(600);
-
-
-					}
-
-					else if (obj.equals("Chainmail")){
-
-						objNivDummy.set_nombre(obj);
-						objNivDummy.set_atributo("defensa");
-						objNivDummy.set_valor(500);
-
-						
-
-
-
-						
-					}
-					else if (obj.equals("Guardian_Greaves")){
-
-						objNivDummy.set_nombre(obj);
-						objNivDummy.set_atributo("vida");
-						objNivDummy.set_valor(500);
-
-					}
-
-					else if (obj.equals("Lotus_Orb")){
-
-						objNivDummy.set_nombre(obj);
-						objNivDummy.set_atributo("vida");
-						objNivDummy.set_valor(1000);
-
-					}
-
-  				}
-  				else {
-
-  					cantEn = Integer.parseInt(tokens[0]);
-
-  					vidaJug = Integer.parseInt(tokens[1]);
-  					eneDummy.set_vida(vidaJug);
-					ataqJug =  Integer.parseInt(tokens[2]);
-					eneDummy.set_ata(ataqJug);
-					defJug = Integer.parseInt(tokens[3]);
-					eneDummy.set_def(defJug);
-
-  					contador = 0;
-
-  					nivelDummy.set_name(nombreNiv);
-  					nivelDummy.set_player(playerDummy);
-  					nivelDummy.set_jefe(bossDummy);
-  					nivelDummy.set_ally(allyDummy);
-  					nivelDummy.set_obj(objNivDummy);
-  					nivelDummy.set_enemy(eneDummy);
-  					nivelDummy.set_cant(cantEn);
-  					listaNiveles.add(nivelDummy);
-  	
-
-
-  				}
-
-
-  			}
-
-  			fileReader.close();
-
-  			System.out.println("Niveles cargados:");
-
   			
-			size = listaNiveles.size();
-			i=0;
-			while(i < size){
-				N = listaNiveles.get(i);
-				name = N.get_name();
-				System.out.println(name);
-	
-			i++;
-			}
 
 
 			System.out.println("1. Crear Nivel");
