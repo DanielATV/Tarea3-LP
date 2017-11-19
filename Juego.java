@@ -42,6 +42,8 @@ public class Juego {
 	Objeto objAllyDummy = new Objeto("","",-1);
 	Aliado allyDummy = new Aliado(-1,objAllyDummy);
 	Objeto objNivDummy = new Objeto("","",-1);
+	Enemigo eneDummy = new Enemigo(-1,-1,-1);
+	Nivel nivelDummy = new Nivel();
 	
 
 
@@ -305,7 +307,24 @@ public class Juego {
 
   					cantEn = Integer.parseInt(tokens[0]);
 
+  					vidaJug = Integer.parseInt(tokens[1]);
+  					enemDummy.set_vida(vidaJug);
+					ataqJug =  Integer.parseInt(tokens[2]);
+					enemDummy.set_ata(ataqJug);
+					defJug = Integer.parseInt(tokens[3]);
+					enemDummy.set_def(defJug);
+
   					contador = 0;
+
+  					nivelDummy.set_name(nombreNiv);
+  					nivelDummy.set_player(playerDummy);
+  					nivelDummy.set_jefe(bossDummy);
+  					nivelDummy.set_ally(allyDummy);
+  					nivelDummy.set_obj(objNivDummy);
+  					nivelDummy.set_enemy(enemDummy);
+  					nivelDummy.set_cant(cantEn);
+  	
+
 
   				}
 
