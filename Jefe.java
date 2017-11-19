@@ -30,6 +30,14 @@ public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
 		return 1;
 	}
 
+	void set_ata(int ata)}{
+		ataque = ata;
+	}
+
+	void set_def(int def){
+		defensa = def;
+	}
+
 	public int use_esp(String name, int def){
 		if (esp_1 == name) {
 			if (power_1 <= def) {
