@@ -71,6 +71,7 @@ public class Juego {
 	  		if (contador == 0){
 	  			contador += 1;
 	  			nombreNiv = tokens[0];
+	  			
 	  					
 
 	  		}
@@ -325,7 +326,15 @@ public class Juego {
 				nivelDummy.set_obj(objNivDummy);
 				nivelDummy.set_enemy(eneDummy);
 				nivelDummy.set_cant(cantEn);
-				listaNiveles.add(nivelDummy);
+
+				
+				
+				
+				
+				
+				listaNiveles.add(new Nivel(nombreNiv,nivelDummy.get_player(),nivelDummy.get_jefe(),nivelDummy.get_ally(),nivelDummy.get_obj(),nivelDummy.get_enemy(),cantEn));
+
+	
 
 
 
@@ -349,6 +358,7 @@ public class Juego {
 
 			i++;
 		}
+
 
 	  	}catch(IOException ioe){
 
