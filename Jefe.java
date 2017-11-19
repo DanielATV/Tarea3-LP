@@ -53,9 +53,6 @@ public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
 		defensa = def;
 	}
 	
-	public void set_vida(int vid){
-		vida = vid;
-	}
 	
 	public void set_nombre(String nom){
 		nombre = nom;
