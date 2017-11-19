@@ -11,7 +11,7 @@ import java.util.List;
 public class Juego {
 
   public static void main(String[] args) {
-  	String nombreNiv;
+  	String nombreNiv = "";
   	String nombreJug;
   	int vidaJug;
   	int ataqJug;
@@ -43,7 +43,7 @@ public class Juego {
 	Aliado allyDummy = new Aliado(-1,objAllyDummy);
 	Objeto objNivDummy = new Objeto("","",-1);
 	Enemigo eneDummy = new Enemigo(-1,-1,-1);
-	Nivel nivelDummy = new Nivel();
+	Nivel nivelDummy = new Nivel("",playerDummy,bossDummy,allyDummy,objNivDummy,eneDummy,-1);
 	
 
 
@@ -308,11 +308,11 @@ public class Juego {
   					cantEn = Integer.parseInt(tokens[0]);
 
   					vidaJug = Integer.parseInt(tokens[1]);
-  					enemDummy.set_vida(vidaJug);
+  					eneDummy.set_vida(vidaJug);
 					ataqJug =  Integer.parseInt(tokens[2]);
-					enemDummy.set_ata(ataqJug);
+					eneDummy.set_ata(ataqJug);
 					defJug = Integer.parseInt(tokens[3]);
-					enemDummy.set_def(defJug);
+					eneDummy.set_def(defJug);
 
   					contador = 0;
 
@@ -321,7 +321,7 @@ public class Juego {
   					nivelDummy.set_jefe(bossDummy);
   					nivelDummy.set_ally(allyDummy);
   					nivelDummy.set_obj(objNivDummy);
-  					nivelDummy.set_enemy(enemDummy);
+  					nivelDummy.set_enemy(eneDummy);
   					nivelDummy.set_cant(cantEn);
   	
 
