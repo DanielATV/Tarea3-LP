@@ -135,7 +135,7 @@ public class Juego {
 
 
 						}
-						else if (obj.equals("Chainmail"){
+						else if (obj.equals("Chainmail")){
 
 							objJugDummy.set_nombre(obj);
   							objJugDummy.set_atributo("defensa");
@@ -185,7 +185,7 @@ public class Juego {
 
 					ataque1 = tokens[4];
 
-					if (tokens[4].equals("Cannon_Spear"){
+					if (tokens[4].equals("Cannon_Spear")){
 
 						bossDummy.set_esp1(ataque1,300);
 
