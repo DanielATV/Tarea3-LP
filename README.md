@@ -17,6 +17,14 @@ Objetos:
 - Guardian Greaves + 500 vida
 - Lotus Orb +1000 vida
 
+Uso del .jaar:
+
+Compilacion:
+
+jar -cfvm juegoTarea.jar Manifest.txt Juego.class Jugador.class Aliado.class Ataque.class AtaqueEspecial.class Enemigo.class Jefe.class Juego.class Nivel.class Objeto.class Personaje.class  Test.class
+
+Ejecucion:
+java -jar juegoTarea.jar
 
 Consideraciones menores:
 Para los nombres, si son compuestos se deben separar con un guion bajo. (Ej Alan_Brito)
