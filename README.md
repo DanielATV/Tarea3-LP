@@ -16,3 +16,5 @@ Objetos:
 - Chainmail +500 defensa
 - Guardian Greaves + 500 vida
 - Lotus Orb +1000 vida
+
+***** Simulador.class pasa a ser metodo de Nivel.class *****
