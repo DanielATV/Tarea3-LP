@@ -1,4 +1,3 @@
-
 public class Enemigo extends Personaje implements Ataque{
 	protected int ataque;
 	protected int defensa;
@@ -21,10 +20,6 @@ public class Enemigo extends Personaje implements Ataque{
 
 	void set_def(int def){
 		defensa = def;
-	}
-
-	void set_vida(int vid){
-		vida = vid;
 	}
 
 	public void display(){
