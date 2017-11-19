@@ -17,6 +17,18 @@ Objetos:
 - Guardian Greaves + 500 vida
 - Lotus Orb +1000 vida
 
+Uso del Makefile:
+
+Compilacion:
+make
+
+Ejecucion:
+make run
+
+(Opcional)Limpieza
+
+make clean
+
 Uso del .jaar:
 
 Compilacion:
