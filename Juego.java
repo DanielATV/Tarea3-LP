@@ -32,6 +32,10 @@ public class Juego {
   	StringBuffer stringBuffer = new StringBuffer();
   	String[] tokens;
   	int contador;
+
+  	Nivel N;
+	String name;
+	int size;
   
 
 	List<Nivel> listaNiveles = new ArrayList<Nivel>();
@@ -336,14 +340,13 @@ public class Juego {
 
   			System.out.println("Niveles cargados:");
 
-  			Nivel N;
-			String name;
-			int size = listaNiveles.size();
-			int i=0;
+  			
+			size = listaNiveles.size();
+			i=0;
 			while(i < size){
 				N = listaNiveles.get(i);
 				name = N.get_name();
-				System.out.println((i+1)+" "+name);
+				System.out.println(name);
 	
 			i++;
 			}
@@ -784,6 +787,19 @@ public class Juego {
 			}
 			else if (linea.equals("2")){
 				System.out.println("Test");
+			}
+			else if (linea.equals("3")){
+
+				i = 0;
+				size = listaNiveles.size();
+				while(i < size){
+					N = listaNiveles.get(i);
+					name = N.get_name();
+					System.out.println((i+1)+" "+name);
+	
+					i++;
+				}
+
 			}
 			else if(linea.equals("4")){
 				juego = false;
