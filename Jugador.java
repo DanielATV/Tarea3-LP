@@ -76,8 +76,8 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 	public void set_vida(int vid){
 		vida = vid;
 	}
-  
-  public void set_nombre(String nom){
+	
+	public void set_nombre(String nom){
 		nombre = nom;
 	}
 
