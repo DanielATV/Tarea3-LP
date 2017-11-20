@@ -35,6 +35,10 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 	public int get_def(){
 		return defensa;
 	}
+	
+	public int get_obj(){
+		return obj1_bool;
+	}
 
 	public int get_pp1(){
 		return cost_1;
