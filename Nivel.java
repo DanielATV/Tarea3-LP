@@ -133,7 +133,7 @@ public class Nivel{
 					while(enemy.get_vida()>0 && player.get_vida()>0){
 						// Ataque del player
 
-						if(player.get_power_esp1()>0 || player.get_power_esp2()>0){
+						if(player.get_pp1()>0 || player.get_pp2()>0){
 
 							esp_or_not = test.atack_choice();
 
@@ -165,7 +165,7 @@ public class Nivel{
 
 							if (what_esp == 1){
 
-								if(player.get_power_esp1()>0){
+								if(player.get_pp1()>0){
 									ataq = player.get_esp1();
 
 								}
@@ -176,7 +176,7 @@ public class Nivel{
 
 							}
 							else if (what_esp == 2 ){
-								if(player.get_power_esp2()>0){
+								if(player.get_pp2()>0){
 
 									ataq = player.get_esp2();
 								}
@@ -265,7 +265,7 @@ public class Nivel{
 					while(boss.get_vida()>0 && player.get_vida()>0){
 						// Ataque del player
 
-						if(player.get_power_esp1()>0 || player.get_power_esp2()>0){
+						if(player.get_pp1()>0 || player.get_pp2()>0){
 
 							esp_or_not = test.atack_choice();
 
@@ -302,7 +302,7 @@ public class Nivel{
 
 							if (what_esp == 1){
 
-								if(player.get_power_esp1()>0){
+								if(player.get_pp1()>0){
 									ataq = player.get_esp1();
 
 								}
@@ -314,7 +314,7 @@ public class Nivel{
 							}
 							else if (what_esp == 2 ){
 
-								if(player.get_power_esp2()>0){
+								if(player.get_pp2()>0){
 
 									ataq = player.get_esp2();
 								}
