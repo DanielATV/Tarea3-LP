@@ -39,6 +39,7 @@ public class Juego {
 	  	int resultado = 0;
 
 	  	Nivel niv;
+	  	Nivel nivAux;
 		String name;
 		int size;
 		int i;
@@ -881,7 +882,9 @@ public class Juego {
 							niv = listaNiveles.get(opcion-1);
 							menu = false;
 
-							niv.simulator(niv);
+							nivAux = niv.copy(niv);
+
+							nivAux.simulator(nivAux);
 
 						}
 
