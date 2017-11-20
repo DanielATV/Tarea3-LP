@@ -30,7 +30,7 @@ public class Test {
 			cant_enemigos --;
 			return 2;
 		} else if (random.equals("Jefe")) {
-			list_path.remove(random);
+			
 			return 3;
 		}
 		return 0;
