@@ -392,7 +392,7 @@ public class Nivel{
 
 								valor = boss.atacar_jugador(player);
 
-								System.out.println(boss.get_nombre()+"ataca "+player.get_name()+", "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+								System.out.println(boss.get_nombre()+" ataca "+player.get_name()+", "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
 								writer.write(boss.get_nombre()+" ataque "+player.get_name()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 								writer.write("\n");
 
