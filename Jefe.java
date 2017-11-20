@@ -114,7 +114,7 @@ public class Jefe extends Personaje implements Ataque,AtaqueEspecial{
 	public int ataque_especial(int opc,int vid, int def){
 		if (opc == 1) {
 			if ((ataque + power_1 - def)<=0) {
-				return 0;
+				return vid;
 			} else if ((ataque + power_1 - def) > 0) {
 				if ((vid - (ataque + power_1 - def)) <= 0) {
 					return 0;
