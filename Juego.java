@@ -42,7 +42,6 @@ public class Juego {
 		String name;
 		int size;
 		int i;
-		boolean flag = false;
 	  
 
 		List<Nivel> listaNiveles = new ArrayList<Nivel>();
@@ -54,7 +53,7 @@ public class Juego {
 		Aliado allyDummy = new Aliado(-1,objAllyDummy);
 		Objeto objNivDummy = new Objeto("","",-1);
 		Enemigo eneDummy = new Enemigo(-1,-1,-1);
-		Nivel nivelDummy = new Nivel("",playerDummy,bossDummy,allyDummy,objNivDummy,eneDummy,-1);
+
 		
 
 
@@ -139,8 +138,6 @@ public class Juego {
 
 				if (tokens.length == 7){
 					obj= tokens[6];
-
-					flag = true;
 
 	  				if (obj.equals("Veil_of_Discord")){
 
@@ -331,36 +328,42 @@ public class Juego {
 				nivelDummy.set_cant(cantEn);
 
 				
+
+				Jugador jugadorAuxiliar = new Jugador((nivelDummy.get_player()).get_vida(),(nivelDummy.get_player()).get_def(),(nivelDummy.get_player()).get_ata(),(nivelDummy.get_player()).get_name());
+
+			
+				jugadorAuxiliar.set_esp1((nivelDummy.get_player()).get_esp1(),(nivelDummy.get_player()).get_power_esp1(),(nivelDummy.get_player()).get_pp1());
+				jugadorAuxiliar.set_esp2((nivelDummy.get_player()).get_esp2(),(nivelDummy.get_player()).get_power_esp2(),(nivelDummy.get_player()).get_pp2());
+
+
+				if (jugadorAuxiliar.get_obj() == 1) {
+
+					Objeto objAuxJugador = new Objeto(objJugDummy.getNombre(),objJugDummy.getAtributo(),objJugDummy.getValor());
+
+					jugadorAuxiliar.set_obj(objAuxJugador ,1);
+
+					
+				}
+
 				
 				
-				
-				
-				
+				Jefe jefeAuxiliar = new Jefe((nivelDummy.get_jefe()).get_vida(),(nivelDummy.get_jefe()).get_def(),(nivelDummy.get_jefe()).get_ata(),(nivelDummy.get_jefe()).get_nombre());
+
+				jefeAuxiliar.set_esp1((nivelDummy.get_jefe()).get_esp(),(nivelDummy.get_jefe()).get_power_esp());
+
 				Objeto objAuxAlly = new Objeto(objAllyDummy.getNombre(),objAllyDummy.getAtributo(),objAllyDummy.getValor());
 
 				Aliado aliadoAuxiliar = new Aliado((nivelDummy.get_ally()).get_vida(),objAuxAlly);
 
 				Enemigo enemigoAuxiliar = new Enemigo((nivelDummy.get_enemy()).get_vida(),(nivelDummy.get_enemy()).get_def(),(nivelDummy.get_enemy()).get_ata());
 
-				Objeto objAuxNivel =new Objeto((nivelDummy.get_obj()).getNombre(),(nivelDummy.get_obj()).getAtributo(),(nivelDummy.get_obj()).getValor())
+				Objeto objAuxNivel =new Objeto((nivelDummy.get_obj()).getNombre(),(nivelDummy.get_obj()).getAtributo(),(nivelDummy.get_obj()).getValor());
+
 
 
 				
-				if (flag){
-					
 
-					flag = false;
-
-					
-				}
-
-				else{
-
-					//do smt	
-
-				}
-
-				listaNiveles.add(new Nivel(nombreNiv,nivelDummy.get_player(),nivelDummy.get_jefe(),aliadoAuxiliar,objAuxNivel ,enemigoAuxiliar,cantEn));
+				listaNiveles.add(new Nivel(nombreNiv,jugadorAuxiliar,jefeAuxiliar,aliadoAuxiliar,objAuxNivel ,enemigoAuxiliar,cantEn));
 				
 				
 				
