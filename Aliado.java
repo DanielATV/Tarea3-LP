@@ -45,6 +45,10 @@ public class Aliado extends Personaje{
 		return 1;
 	}
 
+	Objeto get_obj(){
+		return A;
+	}
+
 	public void set_vida(int vid){
 		vida = vid;
 	}
