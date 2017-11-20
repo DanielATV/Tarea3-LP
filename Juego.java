@@ -53,6 +53,7 @@ public class Juego {
 		Aliado allyDummy = new Aliado(-1,objAllyDummy);
 		Objeto objNivDummy = new Objeto("","",-1);
 		Enemigo eneDummy = new Enemigo(-1,-1,-1);
+		Nivel nivelDummy = new Nivel("",playerDummy,bossDummy,allyDummy,objNivDummy,eneDummy,-1);
 
 		
 
