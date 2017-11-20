@@ -183,7 +183,7 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 		if (opc == 1) {
 			cost_1--;
 			if ((ataque + power_1 - def) <= 0) {
-				return 0;
+				return vid;
 			} else if ((ataque + power_1 - def) > 0) {
 				if ((vid - (ataque + power_1 - def)) <= 0) {
 					return 0;
@@ -194,7 +194,7 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 		} else if (opc == 2) {
 			cost_2--;
 			if ((ataque + power_2 - def)<=0) {
-				return 0;
+				return vid;
 			} else if ((ataque + power_2 - def) > 0) {
 				if ((vid - (ataque + power_2 - def)) <= 0) {
 					return 0;
