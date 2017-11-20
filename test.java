@@ -7,6 +7,13 @@ public class test {
 	int cant_enemigos;
 	List<String> list_path;
 	List<String> list_ally;
+
+	/******** Contructor: test *******************
+		Descripcion: Crea una clase test nueva
+		Parametros:
+			enemigos entero
+	************************************************/	
+
 	test(int enemigos){
 		cant_enemigos = enemigos;
 		list_path = new ArrayList<String>();
@@ -20,7 +27,14 @@ public class test {
 		list_ally.add("Jugador");
 		list_ally.add("Aliado");
 	}
-	int rand_path(){
+
+	/******** Metodo: rand_path *************************
+		Descripcion: Obtiene un camino aleatorio
+		Retorno: Retorna eleccion de enemigo 
+				 objeto o jefe segun su disponibilidad
+	*****************************************************/
+
+	public int rand_path(){
 		random =list_path.get(new Random().nextInt(list_path.size()));
 		if (random.equals("Objeto")) {
 			list_path.remove(random);	
@@ -39,17 +53,33 @@ public class test {
 		return 0;
 	}
 
-	int atack_choice(){
+	/******** Metodo: atack_choice *************************
+		Descripcion: Obtiene un 1 o 2 de forma aleatoria
+		Retorno: Retorna 1 o 2
+	*****************************************************/
+
+	public int atack_choice(){
 		int a = new Random().nextInt(2) + 1;
 		return a;
 	}
 
-	int select_esp(){
+	/******** Metodo: select_esp *************************
+		Descripcion: Obtiene un 1 o 2 de forma aleatoria
+		Retorno: Retorna 1 o 2
+	*****************************************************/
+
+	public int select_esp(){
 		int b = new Random().nextInt(2) + 1;
 		return b;
 	}
 
-	String rand_atack(int ally_hp){
+	/******** Metodo: rand_atack *************************
+		Descripcion: Obtiene "Aliado" o "Jugador" segun 
+					 disponibilidad de forma aleatoria
+		Retorno: Retorna "Aliado" o "Jugador"
+	*****************************************************/
+
+	public String rand_atack(int ally_hp){
 		if (ally_hp == 0) {
 			return list_ally.get(0);
 		} else {

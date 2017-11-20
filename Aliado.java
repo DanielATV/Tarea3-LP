@@ -1,10 +1,31 @@
 public class Aliado extends Personaje{
 	Objeto A;
 	
+	/******** Contructor: Aliado ********************
+		Descripcion: Crea un aliado nuevo
+		Parametros:
+			vida entero
+			B Objeto
+	************************************************/
+
 	Aliado(int vida, Objeto B){
 		super(vida);
 		this.A = B;
 	}
+
+	/******** Contructor: Aliado ********************
+		Descripcion: Crea un aliado nuevo
+	************************************************/
+
+	Aliado(){
+		super(0);
+	}
+
+	/******** Metodo: assign_item ***************************
+		Descripcion: Asigna el item del aliado a un jugador
+		Parametros:
+			C Jugador
+	*********************************************************/
 
 	void assign_item(Jugador C){
 		if (A.getAtributo()=="vida"){
@@ -15,6 +36,15 @@ public class Aliado extends Personaje{
 			C.set_ata(C.get_ata()+A.getValor());
 		}
 	}
+
+	/******** Metodo: delete_item ************************************
+		Descripcion: Desasigna el item del aliado hacia 
+					 el jugador y verifica si este muere 
+					 en el proceso
+		Parametros:
+			C Jugador
+		Retorno: 0 en caso de muerte del jugador 1 en caso contrario
+	******************************************************************/
 
 	int delete_item(Jugador C){
 		if (A.getAtributo()=="vida"){
@@ -33,6 +63,13 @@ public class Aliado extends Personaje{
 		}
 	}
 
+	/******** Metodo: reduce_hp **************************************
+		Descripcion: Reduce la vida del aliado
+		Parametros:
+			damage entero
+		Retorno: 0 en caso de muerte del aliado 1 en caso contrario
+	******************************************************************/
+
 	int reduce_hp(int damage){
 		vida = vida - damage;
 		if (vida <=0) {
@@ -41,9 +78,20 @@ public class Aliado extends Personaje{
 		return 1;
 	}
 
+	/******** Metodo: set_vida ***************************************
+		Descripcion: Establece la vida del aliado
+		Parametros:
+			vid entero
+	******************************************************************/
+
 	public void set_vida(int vid){
 		vida = vid;
 	}
+
+	/******** Metodo: display ****************************************
+		Descripcion: Imprime en pantalla 
+					 el estado de salud del aliado
+	******************************************************************/
 
 	void display(){
 		System.out.print("Aliado: "+vida+" HP ");
