@@ -812,7 +812,7 @@ public class Juego {
 						System.out.print("Cantidad de enemigos: ");
 						linea = reader.readLine();
 						cantEn = Integer.parseInt(linea);
-						writer.write(vidaJug + " ");
+						writer.write(cantEn + " ");
 						System.out.print("Vida del enemigo: ");
 						linea = reader.readLine();
 						vidaJug = Integer.parseInt(linea);
