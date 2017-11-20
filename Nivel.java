@@ -229,6 +229,7 @@ public class Nivel{
 								writer.write("Muerte de "+player.get_name());
 								writer.write("\n");
 								flag = 0;
+
 							}
 
 						} else if (which_one.equals("Jugador")) {
@@ -295,6 +296,7 @@ public class Nivel{
 								writer.write("\n");
 
 								flag = 0;
+								break;
 							}
 						} else if (esp_or_not == 2) {
 							// Ataque especial hacia el jefe siempre y cuando sea posible con los pp actuales
@@ -337,6 +339,7 @@ public class Nivel{
 								writer.write("Muerte de "+boss.get_nombre());
 								writer.write("\n");
 								flag = 0;
+								break;
 							}
 						}
 						// Ataque del Jefe
