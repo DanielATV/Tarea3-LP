@@ -325,7 +325,7 @@ public class Nivel{
 							}
 
 							valor = player.ata_esp_jefe(what_esp,boss);
-							System.out.println(player.get_name()+" utilizo "+ ataq +"contra "+boss.get_nombre()+", "+player.get_name()+": "+player.get_vida()+"Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
+							System.out.println(player.get_name()+" utilizo "+ ataq +" contra "+boss.get_nombre()+", "+player.get_name()+": "+player.get_vida()+"Aliado: "+ally.get_vida()+" "+boss.get_nombre()+" "+boss.get_vida() );
 							writer.write(player.get_name()+" "+ataq+" "+boss.get_nombre()+" "+player.get_vida()+" "+ally.get_vida()+" "+boss.get_vida());
 							writer.write("\n");
 
