@@ -1,0 +1,6 @@
+TestLevel
+TestPlayer 3000 300 100 Guillotine_Fist Rising_Dragon 
+TestBoss 2800 250 100 Cannon_Spear 
+1200 Veil_of_Discord
+Lotus_Orb
+6 1000 400 0
