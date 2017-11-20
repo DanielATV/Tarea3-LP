@@ -21,6 +21,73 @@ public class Nivel{
 		enemy = enem;
 		cantidadEnemigos = cant;
 	}
+
+	public Nivel copy (Nivel n){
+
+		Objeto obj;
+		Jugador jug;
+		Jefe jef;
+		Aliado al;
+		Enemigo ene;
+		int cant=-1;
+		String name="";
+		int jug_vida = (n.get_player()).get_vida();
+		int jug_def = (n.get_player()).get_def();
+		int jug_ata = (n.get_player()).get_ata();
+		int jug_pp1 = (n.get_player()).get_pp1();
+		int power_pp1 = (n.get_player()).get_power_esp1();
+		int power_pp2 = (n.get_player()).get_power_esp1();
+		int jug_pp2 = (n.get_player()).get_pp2();
+		String esp_1 = (n.get_player()).get_esp1();
+		String esp_2 = (n.get_player()).get_esp2();
+		String jug_name = (n.get_player()).get_name();
+		jug = new Jugador(jug_vida,jug_def,jug_ata,jug_name); // <----------------------- Jugador
+		jug.set_esp1(esp_1,power_pp1,jug_pp1);
+		jug.set_esp2(esp_2,power_pp2,jug_pp2);
+		if ((n.get_player()).get_obj() == 1) {
+
+			String obj_1 = ((n.get_player()).get_item1()).getNombre();
+			String atr_obj1 = ((n.get_player()).get_item1()).getAtributo();
+			int value_obj_1 = ((n.get_player()).get_item1()).getValor();
+			Objeto obj_aux_1 = new Objeto(obj_1,atr_obj1,value_obj_1);
+
+			jug.set_obj(obj_aux_1,0);
+		}
+		if ((n.get_player()).get_obj2() == 1) {
+
+			String obj_2 = ((n.get_player()).get_item2()).getNombre();
+			String atr_obj2 = ((n.get_player()).get_item2()).getAtributo();
+			int value_obj_2 = ((n.get_player()).get_item2()).getValor();
+			Objeto obj_aux_2 = new Objeto(obj_2,atr_obj2,value_obj_2);
+
+			jug.set_obj(obj_aux_2,1);	
+		}
+		String ally_obj = ((n.get_ally()).get_obj()).getNombre();
+		String ally_atr_obj = ((n.get_ally()).get_obj()).getAtributo();
+		int ally_atr_val = ((n.get_ally()).get_obj()).getValor();
+		Objeto aux_ally = new Objeto(ally_obj,ally_atr_obj,ally_atr_val);
+		int ally_vit = (n.get_ally()).get_vida();
+		al = new Aliado(ally_vit,aux_ally); // <----------------------- Aliado
+		int boss_ataque = (n.get_jefe()).get_ata();
+		int boss_defensa = (n.get_jefe()).get_def();
+		String boss_nombre = (n.get_jefe()).get_nombre();
+		String boss_esp_1 = (n.get_jefe()).get_esp();
+		int boss_power_1 = (n.get_jefe()).get_power_esp();
+		int boss_vida = (n.get_jefe()).get_vida();
+		jef = new Jefe(boss_vida, boss_defensa, boss_ataque, boss_nombre);
+		jef.set_esp1(boss_esp_1,boss_power_1); // <----------------------- Jefe
+		int ene_ataque = (n.get_enemy()).get_ata();
+		int ene_defensa = (n.get_enemy()).get_def();
+		int ene_vit = (n.get_enemy()).get_vida();
+		ene = new Enemigo(ene_vit, ene_defensa,ene_defensa);
+		String obj_name = (n.get_obj()).getNombre();
+		String atr_obj = (n.get_obj()).getAtributo();
+		int value_obj = (n.get_obj()).getValor();
+		obj = new Objeto(obj_name,atr_obj,value_obj);
+		Nivel aux = new Nivel(name,jug,jef,al,obj,ene,cant);
+		return aux;
+	}
+
 	
 	public String get_name(){
 		return nombreNivel;
