@@ -24,16 +24,13 @@ public class Test {
 		random =list_path.get(new Random().nextInt(list_path.size()));
 		if (random.equals("Objeto")) {
 			list_path.remove(random);	
-			System.out.println("Objeto Obtenido!!");
 			return 1;
 		} else if (random.equals("Enemigo")) {
 			list_path.remove(random);
 			cant_enemigos --;
-			System.out.println("Enemigo Encontrado!! - Restantes: "+cant_enemigos);
 			return 2;
 		} else if (random.equals("Jefe")) {
 			list_path.remove(random);
-			System.out.println("Batalla Final!!");
 			return 3;
 		}
 		return 0;
