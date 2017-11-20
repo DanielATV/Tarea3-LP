@@ -210,7 +210,7 @@ public class Nivel{
 							enemy.atacar_aliado(ally,player);
 
 							System.out.println("Enemigo ataca a Aliado, "+player.get_name()+": "+player.get_vida()+" Aliado: "+ally.get_vida()+" Enemigo: "+enemy.get_vida() );
-							writer.write("Enemigo ataca Aliado"+player.get_vida()+" "+ally.get_vida()+" "+enemy.get_vida());
+							writer.write("Enemigo ataca Aliado "+player.get_vida()+" "+ally.get_vida()+" "+enemy.get_vida());
 							writer.write("\n");
 
 							if(ally.get_vida() == 0){
