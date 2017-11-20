@@ -25,7 +25,7 @@ make
 Ejecucion:
 make run
 
-(Opcional)Limpieza
+(Opcional)Limpieza:
 
 make clean
 
@@ -37,6 +37,10 @@ jar -cfvm juegoTarea.jar Manifest.txt Juego.class Jugador.class Aliado.class Ata
 
 Ejecucion:
 java -jar juegoTarea.jar
+
+Clases extra:
+
+Test: Se encarga de dar las elecions al azar de las acciones del jugador.
 
 Consideraciones menores:
 Para los nombres, si son compuestos se deben separar con un guion bajo. (Ej Alan_Brito)
