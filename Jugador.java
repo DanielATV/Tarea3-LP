@@ -43,6 +43,17 @@ public class Jugador extends Personaje implements Ataque,AtaqueEspecial{
 		return obj2_bool;
 	}
 
+	public Objeto get_item1(){
+
+		return obj1;
+
+	}
+
+	public Objeto get_item2(){
+		return obj2;
+		
+	}
+
 	public int get_pp1(){
 		return cost_1;
 	}
