@@ -357,7 +357,7 @@ public class Nivel{
 
 							if(valor == 0){
 								// jefe derrotado
-								System.out.println(boss.get_nombre()+ "ha sido derrotado");
+								System.out.println(boss.get_nombre()+ " ha sido derrotado");
 								System.out.println("Salvaste al mundo!");
 								writer.write("Muerte de "+boss.get_nombre());
 								writer.write("\n");
@@ -401,7 +401,7 @@ public class Nivel{
 							if(valor == 0){
 								// jefe derrotado
 
-								System.out.println(boss.get_nombre()+ "ha sido derrotado");
+								System.out.println(boss.get_nombre()+ " ha sido derrotado");
 								System.out.println("Salvaste al mundo!");
 								writer.write("Muerte de "+boss.get_nombre());
 								writer.write("\n");
