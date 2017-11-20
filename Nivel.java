@@ -287,7 +287,7 @@ public class Nivel{
 							writer.write("\n");
 
 
-							if(player.atacar_jefe(boss) == 0){
+							if(valor == 0){
 								// jefe derrotado
 								System.out.println(boss.get_nombre()+ "ha sido derrotado");
 								System.out.println("Salvaste al mundo!");
